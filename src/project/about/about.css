@@ -1,0 +1,59 @@
+#return {
+    margin: 40px;
+}
+
+#nav-dropdown {
+    margin: 40px;
+}
+
+#contact {
+    margin: 40px;
+}
+
+#aboutButt {
+    display: flex;
+    margin: 20px;
+    display: flex;
+    justify-content: center;   
+}
+
+
+#cardAbout {
+    height: 100px;
+    
+}
+
+#aboutInfo {
+    line-height: 80px;
+}
+
+#cardImg {
+   width: 100%; 
+    height: 500px;
+}
+
+#headLine {
+    font-size: large; 
+    color:blue;
+    font-family: "McLaren", cursive;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+#card {
+    font-family: Georgia, serif;
+    font-size:x-large; 
+    color:midnightblue;
+    width:100%
+}
+
+#aboutText {
+    font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+#transportation {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}

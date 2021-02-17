@@ -1,0 +1,13 @@
+#mailimg {
+  opacity: 0.7;
+}
+
+#keepMePosted {
+    margin: 40px;
+}
+
+#postedButt {
+  background-color: grey;
+  border-style: solid;
+  border-color: black;
+}
