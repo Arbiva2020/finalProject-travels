@@ -12,6 +12,7 @@ import Store from "./project/store/store";
 import WeAreHiring from "./project/weAreHiring/weAreHiring";
 import MailMe from "./project/mailMe/mailMe";
 import FromTheMedia from "./project/fromTheMedia/fromTheMedia";
+import BlogB from "./project/blogB/blogB";
 import Blog from "./project/blog/blog";
 import OrderPage from "./project/orderPage/orderPage";
 import Cart from "./project/cart/cart";
@@ -26,9 +27,12 @@ import imgB from "../src/images/image.jpg";
 import imgC from "../src/images/Eilat.jpg";
 import imgD from "../src/images/lisr5a-explore-historic-israel-hero-1800x1000.jpg";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Test_1 from "./project/test_1/test_1";
 
 
 function App() {
+
+
   const products =[
     
     {
@@ -102,11 +106,13 @@ function App() {
       <Route path='/mailMe' exact component = {MailMe}/>
       <Route path='/fromTheMedia' exact component = {FromTheMedia}/>
       <Route path='/blog' exact component = {Blog}/>
+      <Route path='/blogB' exact component = {BlogB}/>
       <Route path='/orderPage' exact component = {OrderPage}/>
       <Route path='/cart' exact component = {Cart}/>
       <Route path='/logIn' exact component = {LogIn}/>
       <Route path='/createAccount' exact component = {CerateAccount}/>
       <Route path='/linkMe' exact component = {LinkMe}/>
+      <Route path='/test_1' exact component = {Test_1}/>
       {/* <Route path='/orderPage' exact component = {OrderPage}/>
       <Route path='/' exact component = {}/> */}
       {/* <HomePage /> */}

@@ -7,12 +7,11 @@ import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
 import "./footer.css";
 
 function Footer() {
-
   const currentYear = new Date().getFullYear();
 
   return (
     <Navbar bg="dark" variant="dark" id="footerNav">
-      <Navbar.Brand href="/blog">BLOG</Navbar.Brand>
+      <Navbar.Brand href="/blogB">BLOG</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href="" style={{ fontSize: "25px" }}>
           <a>
