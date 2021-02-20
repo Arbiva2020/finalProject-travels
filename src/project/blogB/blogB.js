@@ -1,6 +1,8 @@
 import { React, useState } from "react";
-import { Card, Container, Col, Row } from "react-bootstrap";
+import { Card, Container, Col, Row, Button, NavDropdown } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
+import nazareth from "../../images/nazareth.jpg";
+import nazareth2 from "../../images/nazareth2.jpg";
 import "./blogB.css";
 
 function Posts(props) {
@@ -17,17 +19,35 @@ function Posts(props) {
     const blogsHtml = data.map((blog, index) => {
       return (
         <div key={index}>
-          <Card border="secondary" style={{ width: "18rem" }}>
-            <Card.Header>Header</Card.Header>
-            <Card.Body>
-              <Card.Title>{blog.title}</Card.Title>
-              <Card.Text>{blog.body}</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              {blog.userId}
-              {blog.id}
-            </Card.Footer>
-          </Card>
+          <Row>
+            {/* <Col xs={2} id="photoPart1">
+              <img src={nazareth} id="nazarethImg" class="img-fluid" />
+            </Col> */}
+            <Col xs={8}>
+              <Card
+                border="secondary"
+                style={{
+                  width: "18rem",
+                  margin: "10px",
+                  width: "18rem",
+                  height: "22rem",
+                }}
+              >
+                <Card.Header>Header</Card.Header>
+                <Card.Body>
+                  <Card.Title>{blog.title}</Card.Title>
+                  <Card.Text>{blog.body}</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  {blog.userId}
+                  {blog.id}
+                </Card.Footer>
+              </Card>
+            </Col>
+            {/* <Col xs={2} id="photoPart2">
+              <img src={nazareth2} id="nazareth2Img" class="img-fluid" />
+            </Col> */}
+          </Row>
         </div>
       );
     });
@@ -38,14 +58,40 @@ function Posts(props) {
   return (
     <Container>
       <p>
-        <h1>Always happy to share our thoughts! </h1>
+        <h1 id="allBlogsH1">Always happy to share our thoughts! </h1>
       </p>
       <p>
         <h3>All information you need, in one place </h3>
       </p>
-      <Col xs={8} className="flex">
-        {blogsArray}
-      </Col>
+      <Row>
+        <Col xs={2} id="photoPart1">
+          <img src={nazareth} id="nazarethImg" class="img-fluid" />
+        </Col>
+
+        <Col xs={8} className="flex">
+          {blogsArray}
+        </Col>
+
+        <Col xs={2} id="photoPart2">
+          <img src={nazareth2} id="nazareth2Img" class="img-fluid" />
+        </Col>
+      </Row>
+      <Row id="rowSortBlog">
+        <Button id="nextBlogButt">Next</Button>
+        <Button id="prevBlogButt">Prev</Button>
+        <NavDropdown style={{}} title="Sort by area" id="sortByArea">
+            <NavDropdown.Item eventKey="4.1">Golan</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.3">Galil</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.3">Jerusalem</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.3">Central Israel</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.2">South</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.3">
+              Eilat and Haarava
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+          </NavDropdown>
+      </Row>
     </Container>
   );
 }

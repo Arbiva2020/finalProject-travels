@@ -23,15 +23,11 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <LinkContainer to='/about'><Nav.Link>About</Nav.Link></LinkContainer>
-            <Nav.Link href="/">Homepage</Nav.Link>
+            <LinkContainer to='/'><Nav.Link>HomePage</Nav.Link></LinkContainer>
             <NavDropdown title="Find out more" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                View Reviwes and Rating
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Add Review</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Send to a Friend
-              </NavDropdown.Item>
+              <LinkContainer to='/reviewesAndRatings'><NavDropdown.Item>View Reviwes and Rating</NavDropdown.Item></LinkContainer>
+              <LinkContainer to='/addReviwe'><NavDropdown.Item>Add Review</NavDropdown.Item></LinkContainer>
+              <NavDropdown.Item href="#action/3.3">Send to a Friend</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 External Links

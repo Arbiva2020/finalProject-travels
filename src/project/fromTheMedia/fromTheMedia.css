@@ -1,5 +1,12 @@
-h1 {
-    color: blue;
-    font-weight: bolder;
+#fromMediah3 {
+  color: black;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 
+#jerusalemMediaImg {
+  width: 100%;
+  height: 50%;
+  background-size: contain;
+  object-fit: cover;
 }

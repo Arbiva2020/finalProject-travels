@@ -160,7 +160,7 @@ function SiteCard(props) {
         <Col xs={8} className="flex">
           {productsArray.map((product, index) => (
             <div key={index}>
-              <Card style={{ width: "18rem" }} id="siteCard">
+              <Card style={{ width: "18rem", height:"40rem" }} id="siteCard">
                 <Card.Img variant="top" src={product.img} />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>

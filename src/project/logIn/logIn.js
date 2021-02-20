@@ -11,7 +11,7 @@ function LogIn(props) {
       <Row>
         <Col xs={7} id="logInCol">
           <Form id="logInForm">
-            <p><h3>Log In:</h3></p>
+            <p><h3 id="h3login">Log In:</h3></p>
             <Form.Group as={Row} controlId="formPlaintextEmail">
               <Form.Label column sm="2">
                 <h6 className="formInput">Email:</h6>
@@ -34,7 +34,8 @@ function LogIn(props) {
               </Col>
             </Form.Group>
             <div id="forgot" as={Row}>
-            <Nav.Link href="/login" style={{color: "black"}}>forgot password?</Nav.Link>
+            {/* <LinkContainer to='/forgotPass'><Nav.Link style={{color: "black"}}>forgot password?</Nav.Link></LinkContainer> */}
+            <Nav.Link style={{color: "black"}} href="/forgotPass">forgot password?</Nav.Link>
             <Nav.Link href="/createAccount" style={{color: "black"}}>Create New Account</Nav.Link>   
             </div>
             <Col xs={4}>
