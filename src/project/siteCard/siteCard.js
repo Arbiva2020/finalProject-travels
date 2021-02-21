@@ -25,10 +25,41 @@ import metroImg from "../../images/יהיה-בסדר-מטרופולין.jpg";
 import israImg from "../../images/z1g5npkm.4kg.jpg";
 import Calendar from "react-calendar";
 
+// handle upper and lower case 
+const places = ['Eilat', 'Jerusalem', 'galil'];
+
 function SiteCard(props) {
   const [productsArray, setProductsArray] = useState(props.products);
   const [date, setDate] = useState(new Date());
+  const [checkedProducts, setCheckedProducts] = useState([]);
+  const [checkboxes, setCheckboxes] = useState(places.reduce(
+    (options, option) => ({
+      ...options,
+      [option]: false
+    }),
+    {}
+  ))
+
+  const checkAllBoxes = (isSelected) => {
+    Object.keys(checkboxes).forEach(checkbox => {
+      setCheckboxes({...checkboxes, [checkbox]:isSelected})
+    })
+  }
+  console.log(checkedProducts);
   console.log(productsArray);
+  console.log(checkboxes);
+
+  const selectAll = () => checkAllBoxes(true);
+  const diselectAll = () => checkAllBoxes(false);
+
+
+  const handleChange = (e) => {
+    const {name} = e.target;
+    setCheckboxes({...checkboxes, [name]: !checkboxes[name]})
+  }
+
+
+  //console.log(checkboxes);
 
   const ReactCalendar = () => {
     const onChange = (date) => {
@@ -44,12 +75,13 @@ function SiteCard(props) {
     setProductsArray([...sortArrayByRating]);
   }
 
-  // function renderProduct() {
-  //   return productArrayState.map((element, index) => {
-  //     return <Product product={element} key={index} />;
-  //   });
-  // }
-
+  const handleClick = (e) => {
+    e.preventDefault();
+    setCheckedProducts(Object.keys(checkboxes)
+    .filter(checkbox => checkboxes[checkbox]))
+  }
+  const relevantProducts = productsArray.filter((name) => checkedProducts.map(product=>product === name ));
+  // const isSomethingChecked = Object.entries(checkboxes).filter(entry => entry[1] === true).length !== 0;
   return (
     <Container>
       <Row>
@@ -72,9 +104,10 @@ function SiteCard(props) {
             />
             <Form.Check
               type="checkbox"
-              label="Jerusalem"
-              name="formHorizontalRadios"
+              label="Eilat"
+              name="Eilat"
               id="formHorizontalRadios3"
+              onChange={handleChange}
             />
             <Form.Check
               type="checkbox"
@@ -124,7 +157,7 @@ function SiteCard(props) {
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
             />
-            <button id="filterCheck">Filter</button>
+            <button id="filterCheck" onClick={handleClick}>Filter</button>
           </Form>
 
           <div>
@@ -160,7 +193,28 @@ function SiteCard(props) {
         </Col>
 
         <Col xs={8} className="flex">
-          {productsArray.map((product, index) => (
+          {
+            checkedProducts.length !== 0 ? relevantProducts.map((product, index) => (
+              <div key={index}>
+                <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
+                  <Card.Img variant="top" src={product.img} />
+                  <Card.Body>
+                    <Card.Title>{relevantProducts.name}</Card.Title>
+                    <Card.Text>{relevantProducts.description}</Card.Text>
+                  </Card.Body>
+                  <ListGroup className="list-group-flush">
+                    <ListGroupItem>{relevantProducts.price}</ListGroupItem>
+                    <ListGroupItem>{relevantProducts.days}</ListGroupItem>
+                    <ListGroupItem>{relevantProducts.rating}</ListGroupItem>
+                  </ListGroup>
+                  <Card.Body>
+                    <Card.Link href="/productPage">Go to page</Card.Link>
+                    <Card.Link href="#"></Card.Link>
+                  </Card.Body>
+                </Card>
+              </div>
+            )) :
+          productsArray.map((product, index) => (
             <div key={index}>
               <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
                 <Card.Img variant="top" src={product.img} />
