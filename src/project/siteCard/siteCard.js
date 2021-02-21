@@ -26,14 +26,16 @@ import israImg from "../../images/z1g5npkm.4kg.jpg";
 import Calendar from "react-calendar";
 
 function SiteCard(props) {
+  const [productsArray, setProductsArray] = useState(props.products);
+  const [date, setDate] = useState(new Date());
+  console.log(productsArray);
+
   const ReactCalendar = () => {
-    const [date, setDate] = useState(new Date());
     const onChange = (date) => {
       setDate(date);
     };
   };
 
-  let [productsArray,setProductsArray ] = useState(props.products);
   function sortByRating() {
     console.log("rating");
     const sortArrayByRating = productsArray.sort(
@@ -160,7 +162,7 @@ function SiteCard(props) {
         <Col xs={8} className="flex">
           {productsArray.map((product, index) => (
             <div key={index}>
-              <Card style={{ width: "18rem", height:"40rem" }} id="siteCard">
+              <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
                 <Card.Img variant="top" src={product.img} />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
@@ -183,7 +185,7 @@ function SiteCard(props) {
         <Col xs={2} id="filterByPrice">
           <Form>
             <h5 id="sortByPrice">Filter by price:</h5>
-          <Form.Check
+            <Form.Check
               type="checkbox"
               label="1000-2000"
               className="priceLevel"
@@ -203,12 +205,8 @@ function SiteCard(props) {
               label="4000-5000"
               className="priceLevel"
             />
-            <Form.Check
-              type="checkbox"
-              label="All"
-              className="priceLevel"
-            />
-            </Form>
+            <Form.Check type="checkbox" label="All" className="priceLevel" />
+          </Form>
 
           <div>
             <p>
@@ -275,10 +273,14 @@ function SiteCard(props) {
           </div>
 
           <div id="byRating">
-          <Button onClick={sortByRating} id="sort"> Sort</Button>
-          <Button onClick={""} id="filterRating">Filter</Button>
+            <Button onClick={sortByRating} id="sort">
+              {" "}
+              Sort
+            </Button>
+            <Button onClick={""} id="filterRating">
+              Filter
+            </Button>
           </div>
-         
 
           <DropdownButton id="dropdown-item-button" title="Kitchen & diet:">
             <Dropdown.ItemText>Nutrition:</Dropdown.ItemText>
@@ -306,26 +308,38 @@ function SiteCard(props) {
           <Card className="bg-darkA" id="rent">
             <Card.Img src={rentImg} alt="Card image" />
             <Card.ImgOverlay>
-              <Card.Title style={{color: "white"}}>Hire a car!</Card.Title>
-              <Card.Text style={{color: "white", textAlign: "bottom"}}>Contact us for a deal!</Card.Text>
+              <Card.Title style={{ color: "white" }}>Hire a car!</Card.Title>
+              <Card.Text style={{ color: "white", textAlign: "bottom" }}>
+                Contact us for a deal!
+              </Card.Text>
             </Card.ImgOverlay>
           </Card>
 
           <Card className="bg-darkA" id="camp">
             <Card.Img src={campImg} alt="Card image" />
             <Card.ImgOverlay>
-              <Card.Title style={{color: "white"}}>Camping?</Card.Title>
-              <Card.Text style={{color: "white"}}>Call now for a deal!</Card.Text>
+              <Card.Title style={{ color: "white" }}>Camping?</Card.Title>
+              <Card.Text style={{ color: "white" }}>
+                Call now for a deal!
+              </Card.Text>
             </Card.ImgOverlay>
           </Card>
 
           <Card className="bg-darkA" id="aid">
             <Card.Img src={aidImg} alt="Card image" />
             <Card.ImgOverlay>
-              <Card.Title style={{ color: "black", textAlign: "top", fontWeight: "bold" }}>
+              <Card.Title
+                style={{ color: "black", textAlign: "top", fontWeight: "bold" }}
+              >
                 Need an insurance?
               </Card.Title>
-              <Card.Text style={{ color: "black", textAlign: "bottom", fontWeight: "bold" }}>
+              <Card.Text
+                style={{
+                  color: "black",
+                  textAlign: "bottom",
+                  fontWeight: "bold",
+                }}
+              >
                 Contact us
               </Card.Text>
             </Card.ImgOverlay>

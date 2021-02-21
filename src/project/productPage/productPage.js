@@ -13,6 +13,7 @@ import cardImage from "../../images/thenorthwest.jpg";
 import "./productPage.css";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import ProductCarousel from "./ProductCarousel";
+import {LinkContainer} from "react-router-bootstrap";
 
 function ProductPage(props) {
   let stars = [];
@@ -44,7 +45,7 @@ function ProductPage(props) {
         <Col lg="auto">
           <Card style={{ width: "40rem" }} id="siteCard">
             <Card.Body>
-              <Card.Title>
+              <Card.Title id="cardTitle">
                 <p className="font-weight-bold">{product.name}</p>
               </Card.Title>
               <Card.Text>
@@ -67,8 +68,8 @@ function ProductPage(props) {
                 <p className="font-weight-bold">Rating (scaled 1-5):</p>{" "}
                 {product.rating} <div>{starsP}</div>
               </Card.Text>
-              <Card.Link href="#">Read reviews</Card.Link>
-              <Card.Link href="#">Rate trip</Card.Link>
+              <LinkContainer to='/reviewsAndRatings'><Card.Link>Read reviews</Card.Link></LinkContainer>
+              <LinkContainer to='/addReview'><Card.Link>Add review & rate</Card.Link></LinkContainer>
             </Card.Body>
           </Card>
         </Col>

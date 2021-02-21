@@ -5,8 +5,13 @@
 }
 
 #jerusalemMediaImg {
-  width: 100%;
+  width: auto;
   height: 50%;
   background-size: contain;
   object-fit: cover;
 }
+
+/* #mediaCardBody {
+  height: 100px;
+  width: 100px;
+} */

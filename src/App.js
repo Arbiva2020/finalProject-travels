@@ -19,7 +19,7 @@ import Cart from "./project/cart/cart";
 import LogIn from "./project/logIn/logIn";
 import CerateAccount from "./project/createAccount/createAccount";
 import LinkMe from "./project/linkMe/linkMe";
-import ReviewesAndRatings from "./project/reviewesAndRatings/reviewesAndRatings";
+import ReviewsAndRatings from "./project/reviewsAndRatings/reviewsAndRatings";
 import AddReview from "./project/addReview/addReview";
 import ForgotPass from "./project/forgotPass/forgotPass";
 import Img from "./images/thenorthwest.jpg";
@@ -126,7 +126,7 @@ function App() {
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/createAccount" exact component={CerateAccount} />
             <Route path="/linkMe" exact component={LinkMe} />
-            <Route path="/reviewesAndRatings" exact component={ReviewesAndRatings}/>
+            <Route path="/reviewsAndRatings" exact component={ReviewsAndRatings}/>
             <Route path="/addReview" exact component={AddReview}/>
             <Route path="/forgotPass" exact component={ForgotPass}/>
             <Route path="/test_1" exact component={Test_1} />

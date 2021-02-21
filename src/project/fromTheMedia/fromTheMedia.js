@@ -9,7 +9,7 @@ function FromTheMedia(props) {
     <div>
       <Card>
         <Card.Img id="jerusalemMediaImg" variant="top" src={JerusalemMedia} />
-        <Card.Body>
+        <Card.Body id="mediaCardBody">
           <Card.Text>
             <h3 id="fromMediah3">From the media:</h3>
           </Card.Text>
@@ -18,13 +18,13 @@ function FromTheMedia(props) {
 
       <Card border="secondary" style={{ width: "18rem" }}>
         <Card.Body>
-          <Card.Title>Secondary Card Title</Card.Title>
+          <Card.Title>NO.1 travel site!</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+           "True proffesionals. Each and every detail was taken into account. 
+           We had the time of our lives"
           </Card.Text>
         </Card.Body>
-        <Card.Footer>Header</Card.Footer>
+        <Card.Footer>Afula Times</Card.Footer>
       </Card>
       <br />
     </div>

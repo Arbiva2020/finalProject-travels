@@ -25,8 +25,8 @@ function Header() {
             <LinkContainer to='/about'><Nav.Link>About</Nav.Link></LinkContainer>
             <LinkContainer to='/'><Nav.Link>HomePage</Nav.Link></LinkContainer>
             <NavDropdown title="Find out more" id="collasible-nav-dropdown">
-              <LinkContainer to='/reviewesAndRatings'><NavDropdown.Item>View Reviwes and Rating</NavDropdown.Item></LinkContainer>
-              <LinkContainer to='/addReviwe'><NavDropdown.Item>Add Review</NavDropdown.Item></LinkContainer>
+              <LinkContainer to='/reviewsAndRatings'><NavDropdown.Item>View Reviwes and Rating</NavDropdown.Item></LinkContainer>
+              <LinkContainer to='/addReview'><NavDropdown.Item>Add Review</NavDropdown.Item></LinkContainer>
               <NavDropdown.Item href="#action/3.3">Send to a Friend</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">

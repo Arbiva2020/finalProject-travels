@@ -16,5 +16,13 @@
 }
 
 #cardPencil {
-  
+  margin-bottom: 0px;
+}
+
+#nextRev, #prevRev {
+  margin: 20px;
+  margin-top: 0px;
+  background-color: gray;
+  border-style: solid;
+  border-color: black;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button, Col, Form, Row } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
-import welcome from "../../images/lo.jpg";
+import waterfall from "../../images/waterfall.jpg";
 import "./createAccount.css";
 
 function CreateAccount(props) {
@@ -9,14 +9,15 @@ function CreateAccount(props) {
     <div>
       <Row>
         <Col xs={7}>
-            <h3 id="welcomeHeadline">Thank you for joining our community!</h3>
+            <h3 id="welcomeHeadline" style={{margin:"20px"}}>Thank you for joining our community!</h3>
+            <div id="divCreate">
           <Form id="createForm">
+            <Row style={{margin:"20px"}}>
             <Col>
               <Form.Control placeholder="First Name" id="nameInputB" />
-            </Col>
-            <Col>
               <Form.Control placeholder="Last Name" id="nameInputC"/>
             </Col>
+           </Row>
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 <h6>Email:</h6>
@@ -45,7 +46,6 @@ function CreateAccount(props) {
             </Form.Group>
             <Form.Check
               type="checkbox"
-              className="mb-2 mr-sm-2"
               id="inlineFormCheck"
               label="Remember me"
             />
@@ -53,10 +53,11 @@ function CreateAccount(props) {
               Create account
             </Button>
           </Form>
+          </div>
         </Col>
 
         <Col xs={5}>
-          <img src={welcome} id="welcomeImg" class="img-fluid" />
+          <img src={waterfall} id="waterfallImg" class="img-fluid" />
         </Col>
       </Row>
     </div>

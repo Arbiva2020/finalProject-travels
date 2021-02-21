@@ -6,6 +6,7 @@ import nazareth2 from "../../images/nazareth2.jpg";
 import "./blogB.css";
 
 function Posts(props) {
+  
   async function getPosts() {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
     const data = await response.json();
