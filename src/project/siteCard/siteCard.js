@@ -37,7 +37,7 @@ function SiteCard(props) {
       ...options,
       [option]: false
     }),
-    {}
+    []
   ))
 
   const checkAllBoxes = (isSelected) => {
@@ -45,8 +45,8 @@ function SiteCard(props) {
       setCheckboxes({...checkboxes, [checkbox]:isSelected})
     })
   }
-  console.log(checkedProducts);
-  console.log(productsArray);
+  // console.log(checkedProducts);
+  // console.log(productsArray);
   console.log(checkboxes);
 
   const selectAll = () => checkAllBoxes(true);
@@ -82,6 +82,13 @@ function SiteCard(props) {
   }
   const relevantProducts = productsArray.filter((name) => checkedProducts.map(product=>product === name ));
   // const isSomethingChecked = Object.entries(checkboxes).filter(entry => entry[1] === true).length !== 0;
+  
+  const checkBoxes =[{label: "North", name: "", id: "1"}, 
+  {label: "Eilat", name: "", id: "2"}, 
+  {label: "Sea of Galilee", name: "", id: "3"}, 
+  {label: "Jerusalem", name: "", id: "4"}, 
+  {label: "Tel Aviv", name: "", id: "5"}]
+  
   return (
     <Container>
       <Row>
@@ -194,26 +201,26 @@ function SiteCard(props) {
 
         <Col xs={8} className="flex">
           {
-            checkedProducts.length !== 0 ? relevantProducts.map((product, index) => (
-              <div key={index}>
-                <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
-                  <Card.Img variant="top" src={product.img} />
-                  <Card.Body>
-                    <Card.Title>{relevantProducts.name}</Card.Title>
-                    <Card.Text>{relevantProducts.description}</Card.Text>
-                  </Card.Body>
-                  <ListGroup className="list-group-flush">
-                    <ListGroupItem>{relevantProducts.price}</ListGroupItem>
-                    <ListGroupItem>{relevantProducts.days}</ListGroupItem>
-                    <ListGroupItem>{relevantProducts.rating}</ListGroupItem>
-                  </ListGroup>
-                  <Card.Body>
-                    <Card.Link href="/productPage">Go to page</Card.Link>
-                    <Card.Link href="#"></Card.Link>
-                  </Card.Body>
-                </Card>
-              </div>
-            )) :
+            // checkedProducts.length !== 0 ? relevantProducts.map((product, index) => (
+            //   <div key={index}>
+            //     <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
+            //       <Card.Img variant="top" src={product.img} />
+            //       <Card.Body>
+            //         <Card.Title>{relevantProducts.name}</Card.Title>
+            //         <Card.Text>{relevantProducts.description}</Card.Text>
+            //       </Card.Body>
+            //       <ListGroup className="list-group-flush">
+            //         <ListGroupItem>{relevantProducts.price}</ListGroupItem>
+            //         <ListGroupItem>{relevantProducts.days}</ListGroupItem>
+            //         <ListGroupItem>{relevantProducts.rating}</ListGroupItem>
+            //       </ListGroup>
+            //       <Card.Body>
+            //         <Card.Link href="/productPage">Go to page</Card.Link>
+            //         <Card.Link href="#"></Card.Link>
+            //       </Card.Body>
+            //     </Card>
+            //   </div>
+            // )) :
           productsArray.map((product, index) => (
             <div key={index}>
               <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">

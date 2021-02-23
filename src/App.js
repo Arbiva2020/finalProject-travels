@@ -9,6 +9,7 @@ import AccessibleTrips from "./project/accessibleTrips/accessibleTrips";
 import Organized from "./project/organized/organized";
 import Gallery from "./project/gallery/gallery";
 import Store from "./project/store/store";
+import SingleItem from "./project/singleItem/singleItem";
 import WeAreHiring from "./project/weAreHiring/weAreHiring";
 import MailMe from "./project/mailMe/mailMe";
 import FromTheMedia from "./project/fromTheMedia/fromTheMedia";
@@ -30,6 +31,12 @@ import imgB from "../src/images/image.jpg";
 import imgC from "../src/images/Eilat.jpg";
 import imgD from "../src/images/lisr5a-explore-historic-israel-hero-1800x1000.jpg";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import TentFor2 from "../src/images/images.store/3466701071.jpg";
+import PocketKnife from "../src/images/images.store/59931.jpg";
+import Sandals from "../src/images/images.store/שורש-קלאסי-אלכסון-2.jpg";
+import Hammock from "../src/images/images.store/367266.jpg";
+import Shoe from "../src/images/images.store/zephyr-coyote.jpg";
+import Coffee from "../src/images/images.store/64072_0_1.jpg";
 import Test_1 from "./project/test_1/test_1";
 
 function App() {
@@ -76,22 +83,50 @@ function App() {
     },
   ];
 
-  // const items = [
-  //     {
-  //       Item: "2 pl tent",
-  //       description: "High quality tent for two people"
-  //       price (NIS): 250,
-  //       avaliability: "true/false"
-  //       img: null,
-  //     },
-  //     {
-  //       name: "Pocket knife",
-  //       description: "strong and reliable, a must have!"
-  //       price (NIS): 300,
-  //       avaliability: "true/false"
-  //       img: null,
-  //     },
-  //   ];
+  const items = [
+      {
+        name: "2 pl tent",
+        description: "High quality tent for two people",
+        price: 250,
+        avaliability: "Available",
+        img: TentFor2,
+      },
+      {
+        name: "Pocket knife",
+        description: "strong and reliable, a must have!",
+        price: 300,
+        avaliability: "Available",
+        img: PocketKnife,
+      },
+        {
+        name: "Shoresh sandals",
+        description: "the most convenient sandals for long walks",
+        price: 270,
+        avaliability: "Available",
+        img: Sandals,
+      },
+        {
+        name: "Hammock",
+        description: "High quality fabric, ideal for a day out",
+        price: 400,
+        avaliability: "Available",
+        img: Hammock,
+      },
+        {
+        name: "Hiking showes",
+        description: "Stabel, flexible sole, greate for hiking everywhere",
+        price: 500,
+        avaliability: "Out of stock ",
+        img: Shoe,
+      },
+        {
+        name: "Coffee kit",
+        description: "Convenient, compact and light weighted",
+        price: 200,
+        avaliability: "Available",
+        img: Coffee,
+      },
+    ];
 
   return (
     <div className="App">
@@ -115,7 +150,8 @@ function App() {
             <Route path="/accessibleTrips" exact component={AccessibleTrips} />
             <Route path="/organized" exact component={Organized} />
             <Route path="/gallery" exact component={Gallery} />
-            <Route path="/store" exact component={Store} />
+            <Route path="/store" exact component={() => <Store items={items}/>} />
+            <Route path="/singleItem" exact component={() => <SingleItem item={items[0]}/>} />
             <Route path="/weAreHiring" exact component={WeAreHiring} />
             <Route path="/mailMe" exact component={MailMe} />
             <Route path="/fromTheMedia" exact component={FromTheMedia} />

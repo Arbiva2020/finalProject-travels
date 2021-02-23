@@ -1,5 +1,23 @@
-h1 {
-    color: blue;
+#productsHeadline {
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-weight: bolder;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+#storeCard {
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    margin: 20px;
+}
+
+#headNavStore {
+    display: flex;
+}
+
+.itemStore {
+    align-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
 }
