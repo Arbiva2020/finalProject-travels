@@ -23,6 +23,7 @@ import LinkMe from "./project/linkMe/linkMe";
 import ReviewsAndRatings from "./project/reviewsAndRatings/reviewsAndRatings";
 import AddReview from "./project/addReview/addReview";
 import ForgotPass from "./project/forgotPass/forgotPass";
+import OrdersTable from "./project/ordersTable/ordersTable";
 import Img from "./images/thenorthwest.jpg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -90,6 +91,7 @@ function App() {
         price: 250,
         avaliability: "Available",
         img: TentFor2,
+        category: "tents"
       },
       {
         name: "Pocket knife",
@@ -97,6 +99,7 @@ function App() {
         price: 300,
         avaliability: "Available",
         img: PocketKnife,
+        category: "knives"
       },
         {
         name: "Shoresh sandals",
@@ -104,6 +107,7 @@ function App() {
         price: 270,
         avaliability: "Available",
         img: Sandals,
+        category: "showes"
       },
         {
         name: "Hammock",
@@ -111,6 +115,7 @@ function App() {
         price: 400,
         avaliability: "Available",
         img: Hammock,
+        category: "leasure"
       },
         {
         name: "Hiking showes",
@@ -118,6 +123,7 @@ function App() {
         price: 500,
         avaliability: "Out of stock ",
         img: Shoe,
+        category: "showes"
       },
         {
         name: "Coffee kit",
@@ -125,6 +131,29 @@ function App() {
         price: 200,
         avaliability: "Available",
         img: Coffee,
+        category: "leasure" 
+      },
+    ];
+
+
+    const orders = [
+      {
+        OrderID: 111111,
+        ProductsID: 222222,
+        Products: ["Pocket knife", "Hammock"],
+        Quantity: [1, 1],
+        Price: 50,
+        CustomerID: 333333,
+        Date: new Date(),
+      },
+      {
+        OrderID: 444444,
+        ProductsID: 555555,
+        Products: ["2 pl tent", "Coffee kit"],
+        Quantity: [2, 1],
+        Price: 100,
+        CustomerID: 6666666,
+        Date: new Date(),
       },
     ];
 
@@ -164,6 +193,7 @@ function App() {
             <Route path="/linkMe" exact component={LinkMe} />
             <Route path="/reviewsAndRatings" exact component={ReviewsAndRatings}/>
             <Route path="/addReview" exact component={AddReview}/>
+            <Route path="/ordersTable" exact component={() => <OrdersTable order={orders}/>} />
             <Route path="/forgotPass" exact component={ForgotPass}/>
             <Route path="/test_1" exact component={Test_1} />
             {/* <Route path='/orderPage' exact component = {OrderPage}/>

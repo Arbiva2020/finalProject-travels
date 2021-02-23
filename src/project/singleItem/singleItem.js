@@ -3,12 +3,12 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import { render } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import {LinkContainer} from "react-router-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import {
   Card,
   ListGroup,
   ListGroupItem,
-  Form,
+  ButtonGroup,
   Row,
   Button,
   Col,
@@ -19,27 +19,86 @@ import {
 import "./singleItem.css";
 
 function SingleItem(props) {
-  // const [item, setItem] = useState(props.item);
-  // let item = props.item;
+  let [counter, setCount] = useState(1);
 
-  return(
+  function add() {
+    setCount(counter + 1);
+  }
+  function remove() {
+    setCount(counter - 1);
+  }
+
+  return (
     <div>
-      <Card style={{ width: "18rem", height: "40rem" }} id="itemCard">
-        <Card.Img variant="top" src={props.item.img} />
-        <Card.Body>
-          <Card.Title>{props.item.name}</Card.Title>
-          <Card.Text>{props.item.description}</Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem>{props.item.price}</ListGroupItem>
-        </ListGroup>
-        <Card.Body>
-          <Card.Link href="/store">Back to store</Card.Link>
-          <Card.Link href="#"></Card.Link>
-        </Card.Body>
-      </Card>
+      <Row>
+        <Col xs={2}></Col>
+
+        <Col xs={6} id="colItem">
+          <Card style={{ width: "40rem", height: "30rem" }} id="itemImgCard">
+            <Card.Img variant="top" src={props.item.img} />
+          </Card>
+          <Card style={{ width: "20rem", height: "30rem" }} id="itemDetailCard">
+            <Card.Body>
+              <Card.Title id="singleTitle">{props.item.name}</Card.Title>
+              <Card.Text>{props.item.description}</Card.Text>
+              <ListGroup className="list-group-flush">
+                <ListGroupItem>{props.item.price}</ListGroupItem>
+                <ButtonGroup aria-label="Basic example" id="quantity">
+                  <Button
+                    variant="secondary"
+                    onClick={remove}
+                    className="quanSelectors"
+                  >
+                    -1
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    disabled
+                    className="quanSelectors"
+                  >
+                    {counter}
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    onClick={add}
+                    className="quanSelectors"
+                  >
+                    +1
+                  </Button>
+                </ButtonGroup>
+                <Card.Link href="/store">Back to store</Card.Link>
+                <Card.Link href="#"></Card.Link>
+              </ListGroup>
+            </Card.Body>
+            <Button variant="secondary" onClick={""} id="addToCart">
+              Add to cart
+            </Button>
+            <Button variant="secondary" onClick={""} id="addToWishlist">
+              Add to wishlist
+            </Button>
+          </Card>
+        </Col>
+
+        <Col xs={4}></Col>
+      </Row>
+
+      {/* <Row>
+        <h5 id="mightLike">You might also like:</h5>
+        {itemsArray.map((item, index) => (
+            <div key={index}>
+              <Card style={{ width: "18rem", height: "500px" }} id="storeCard">
+                <Card.Img style={{width: "10rem", height: "200px"}} variant="top" src={item.img} />
+                <Card.Body>
+                  <Card.Title>{item.name}</Card.Title>
+                  <Card.Text>{item.description}</Card.Text>
+                </Card.Body>
+                </Card> 
+                </div>
+                ))}
+      </Row> */}
+     
     </div>
-);
+  );
 }
 
 export default SingleItem;

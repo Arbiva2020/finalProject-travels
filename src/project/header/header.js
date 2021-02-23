@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 import {LinkContainer} from "react-router-bootstrap";
 
@@ -37,7 +38,8 @@ function Header() {
           <Nav>
             <Nav.Link href="/createAccount">New Account</Nav.Link>
             <Nav.Link eventKey={2} href="/logIn">Log In</Nav.Link>
-            <FontAwesomeIcon icon={faShoppingCart}  style={{ fontSize: "30px", color:"white"}}/>
+            <LinkContainer to='/cart' style={{ fontSize: "30px", color:"white"}}><FontAwesomeIcon icon={faShoppingCart}/></LinkContainer>
+            <LinkContainer to='/wishlist' style={{ margin: "5px", fontSize: "20px", color:"white"}}><FontAwesomeIcon icon={faHeart}/></LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

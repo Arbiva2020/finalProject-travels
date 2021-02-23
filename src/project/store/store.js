@@ -11,11 +11,12 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
+import { LinkContainer } from "react-router-bootstrap";
 import tentImg from "../../images/images.store/3466701071.jpg";
 import "./store.css";
 
 function Store(props) {
-  const [itemsArray, setItemsArray] = useState(props.items[0]);
+  const [itemsArray, setItemsArray] = useState(props.items);
 
   return (
     <div>
@@ -64,7 +65,7 @@ function Store(props) {
                   <ListGroupItem>{item.avaliability}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                  <Card.Link href="#">Go to item page</Card.Link>
+                  <Card.Link href="./singleItem">Go to item page</Card.Link>
                   <Card.Link href="#"></Card.Link>
                 </Card.Body>
               </Card>
