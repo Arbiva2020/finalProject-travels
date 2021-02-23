@@ -20,6 +20,7 @@ import "./singleItem.css";
 
 function SingleItem(props) {
   let [counter, setCount] = useState(1);
+  const [itemsArray, setItemsArray] = useState([props.item]);
 
   function add() {
     setCount(counter + 1);
@@ -84,7 +85,7 @@ function SingleItem(props) {
 
       {/* <Row>
         <h5 id="mightLike">You might also like:</h5>
-        {itemsArray.map((item, index) => (
+        {items.filter(item => item.category = this.item.catagory).map(setItemsArray =>(
             <div key={index}>
               <Card style={{ width: "18rem", height: "500px" }} id="storeCard">
                 <Card.Img style={{width: "10rem", height: "200px"}} variant="top" src={item.img} />
@@ -95,10 +96,11 @@ function SingleItem(props) {
                 </Card> 
                 </div>
                 ))}
-      </Row> */}
-     
+      </Row>
+      */}
     </div>
   );
 }
 
 export default SingleItem;
+// {itemsArray.map((item, index) => (

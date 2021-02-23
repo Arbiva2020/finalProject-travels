@@ -25,41 +25,36 @@ import metroImg from "../../images/יהיה-בסדר-מטרופולין.jpg";
 import israImg from "../../images/z1g5npkm.4kg.jpg";
 import Calendar from "react-calendar";
 
-// handle upper and lower case 
-const places = ['Eilat', 'Jerusalem', 'galil'];
+// handle upper and lower case
+const places = ["Eilat", "Jerusalem", "galil", "Arava", "Golan", "sea of Galilee", "Tel-Aviv"];
 
 function SiteCard(props) {
   const [productsArray, setProductsArray] = useState(props.products);
   const [date, setDate] = useState(new Date());
   const [checkedProducts, setCheckedProducts] = useState([]);
-  const [checkboxes, setCheckboxes] = useState(places.reduce(
-    (options, option) => ({
-      ...options,
-      [option]: false
-    }),
-    []
-  ))
+  const [checkboxes, setCheckboxes] = useState(
+    places.reduce(
+      (options, option) => ({
+        ...options,
+        [option]: false,
+      }),
+      []
+    )
+  );
 
   const checkAllBoxes = (isSelected) => {
-    Object.keys(checkboxes).forEach(checkbox => {
-      setCheckboxes({...checkboxes, [checkbox]:isSelected})
-    })
-  }
-  // console.log(checkedProducts);
-  // console.log(productsArray);
-  console.log(checkboxes);
+    Object.keys(checkboxes).forEach((checkbox) => {
+      setCheckboxes({ ...checkboxes, [checkbox]: isSelected });
+    });
+  };
 
   const selectAll = () => checkAllBoxes(true);
   const diselectAll = () => checkAllBoxes(false);
 
-
   const handleChange = (e) => {
-    const {name} = e.target;
-    setCheckboxes({...checkboxes, [name]: !checkboxes[name]})
-  }
-
-
-  //console.log(checkboxes);
+    const { name } = e.target;
+    setCheckboxes({ ...checkboxes, [name]: !checkboxes[name] });
+  };
 
   const ReactCalendar = () => {
     const onChange = (date) => {
@@ -77,18 +72,17 @@ function SiteCard(props) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setCheckedProducts(Object.keys(checkboxes)
-    .filter(checkbox => checkboxes[checkbox]))
-  }
-  const relevantProducts = productsArray.filter((name) => checkedProducts.map(product=>product === name ));
-  // const isSomethingChecked = Object.entries(checkboxes).filter(entry => entry[1] === true).length !== 0;
+    setCheckedProducts(
+      Object.keys(checkboxes).filter((checkbox) => checkboxes[checkbox])
+    );
+  };
+
   
-  const checkBoxes =[{label: "North", name: "", id: "1"}, 
-  {label: "Eilat", name: "", id: "2"}, 
-  {label: "Sea of Galilee", name: "", id: "3"}, 
-  {label: "Jerusalem", name: "", id: "4"}, 
-  {label: "Tel Aviv", name: "", id: "5"}]
-  
+
+  const relevantProducts = productsArray.filter(({ name }) =>
+    checkedProducts.map((checkedName) => checkedName.toUpperCase()).includes(name.toUpperCase())
+  );
+
   return (
     <Container>
       <Row>
@@ -97,74 +91,16 @@ function SiteCard(props) {
             <Form.Label>
               <h5>Select:</h5>
             </Form.Label>
-            <Form.Check
+            {places.map(place => (<Form.Check
               type="checkbox"
-              label="North"
-              name="formHorizontalRadios"
+              label={place}
+              name={place}
               id="formHorizontalRadios1"
-            />
-            <Form.Check
-              type="checkbox"
-              label="South"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios2"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Eilat"
-              name="Eilat"
-              id="formHorizontalRadios3"
               onChange={handleChange}
-            />
-            <Form.Check
-              type="checkbox"
-              label="Eilat & Haarava"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Tel-Aviv"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Central Israel"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Kids"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Extreme"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Religious sites"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Nature and hiking"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <Form.Check
-              type="checkbox"
-              label="Shopping and Markets"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios3"
-            />
-            <button id="filterCheck" onClick={handleClick}>Filter</button>
+            />))}
+            <button id="filterCheck" onClick={handleClick}>
+              Filter
+            </button>
           </Form>
 
           <div>
@@ -200,47 +136,53 @@ function SiteCard(props) {
         </Col>
 
         <Col xs={8} className="flex">
-          {
-            // checkedProducts.length !== 0 ? relevantProducts.map((product, index) => (
-            //   <div key={index}>
-            //     <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
-            //       <Card.Img variant="top" src={product.img} />
-            //       <Card.Body>
-            //         <Card.Title>{relevantProducts.name}</Card.Title>
-            //         <Card.Text>{relevantProducts.description}</Card.Text>
-            //       </Card.Body>
-            //       <ListGroup className="list-group-flush">
-            //         <ListGroupItem>{relevantProducts.price}</ListGroupItem>
-            //         <ListGroupItem>{relevantProducts.days}</ListGroupItem>
-            //         <ListGroupItem>{relevantProducts.rating}</ListGroupItem>
-            //       </ListGroup>
-            //       <Card.Body>
-            //         <Card.Link href="/productPage">Go to page</Card.Link>
-            //         <Card.Link href="#"></Card.Link>
-            //       </Card.Body>
-            //     </Card>
-            //   </div>
-            // )) :
-          productsArray.map((product, index) => (
-            <div key={index}>
-              <Card style={{ width: "18rem", height: "40rem" }} id="siteCard">
-                <Card.Img variant="top" src={product.img} />
-                <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
-                  <Card.Text>{product.description}</Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>{product.price}</ListGroupItem>
-                  <ListGroupItem>{product.days}</ListGroupItem>
-                  <ListGroupItem>{product.rating}</ListGroupItem>
-                </ListGroup>
-                <Card.Body>
-                  <Card.Link href="/productPage">Go to page</Card.Link>
-                  <Card.Link href="#"></Card.Link>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+          {checkedProducts.length !== 0
+            ? relevantProducts.map((product, index) => (
+                <div key={index}>
+                  <Card
+                    style={{ width: "18rem", height: "40rem" }}
+                    id="siteCard"
+                  >
+                    <Card.Img variant="top" src={product.img} />
+                    <Card.Body>
+                      <Card.Title>{product.name}</Card.Title>
+                      <Card.Text>{product.description}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroupItem>{product.price}</ListGroupItem>
+                      <ListGroupItem>{product.days}</ListGroupItem>
+                      <ListGroupItem>{product.rating}</ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                      <Card.Link href="/productPage">Go to page</Card.Link>
+                      <Card.Link href="#"></Card.Link>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))
+            : productsArray.map((product, index) => (
+                <div key={index}>
+                  <Card
+                    style={{ width: "18rem", height: "40rem" }}
+                    id="siteCard"
+                  >
+                    <Card.Img variant="top" src={product.img} />
+                    <Card.Body>
+                      <Card.Title>{product.name}</Card.Title>
+                      <Card.Text>{product.description}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroupItem>{product.price}</ListGroupItem>
+                      <ListGroupItem>{product.days}</ListGroupItem>
+                      <ListGroupItem>{product.rating}</ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                      <Card.Link href="/productPage">Go to page</Card.Link>
+                      <Card.Link href="#"></Card.Link>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
         </Col>
 
         <Col xs={2} id="filterByPrice">
@@ -269,6 +211,7 @@ function SiteCard(props) {
             <Form.Check type="checkbox" label="All" className="priceLevel" />
           </Form>
 
+              <div style={{textAlign:"left"}}>
           <div>
             <p>
               <h5 id="ratingHeadline">Select rating:</h5>
@@ -331,6 +274,7 @@ function SiteCard(props) {
             <label for="dewey">
               <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
             </label>
+          </div>
           </div>
 
           <div id="byRating">
