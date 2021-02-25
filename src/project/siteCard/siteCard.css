@@ -18,8 +18,8 @@
 
 #dropdown-item-button {
     margin: 20px;
-    background-color:cornsilk;
-    color: black;
+    background-color:gray;
+    color:white;
     border-style: solid;
     border-color: black;
     border-width: 3px;
@@ -34,8 +34,8 @@
 #sort, #filterRating {
     margin: 20px;
     margin-top: 10px;
-    background-color:cornsilk;
-    color: black;
+    background-color:gray;
+    color:white;
     border-style: solid;
     border-color: black;
     border-width: 3px;
@@ -47,15 +47,17 @@
   margin: 20px;
   width: 100px;
   text-align: left;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #ratingSelect {
   text-align: left; 
   margin: 20px;
-  background-color: cornsilk;
+  background-color: gray;
   border-style: solid;
   border-color: black;
   border-width: 3px;
+  color: white;
 }
 
 #siteCard {
@@ -111,8 +113,8 @@
 
 #filterCheck {
   margin: 20px;
-  background-color: cornsilk;
-  color: black;
+  background-color: gray;
+  color: white;
   border-style: solid;
   border-color: black;
   border-width: 3px;

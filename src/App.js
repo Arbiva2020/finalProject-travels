@@ -39,6 +39,8 @@ import Hammock from "../src/images/images.store/367266.jpg";
 import Shoe from "../src/images/images.store/zephyr-coyote.jpg";
 import Coffee from "../src/images/images.store/64072_0_1.jpg";
 import Test_1 from "./project/test_1/test_1";
+import TentImg1 from "../src/images/images.store/greenTent1.jpg";
+import TentImg2 from "../src/images/images.store/greenTent2.jpg";
 
 function App() {
   const products = [
@@ -85,77 +87,84 @@ function App() {
   ];
 
   const items = [
-      {
-        name: "2 pl tent",
-        description: "High quality tent for two people",
-        price: 250,
-        avaliability: "Available",
-        img: TentFor2,
-        category: "tents"
-      },
-      {
-        name: "Pocket knife",
-        description: "strong and reliable, a must have!",
-        price: 300,
-        avaliability: "Available",
-        img: PocketKnife,
-        category: "knives"
-      },
-        {
-        name: "Shoresh sandals",
-        description: "the most convenient sandals for long walks",
-        price: 270,
-        avaliability: "Available",
-        img: Sandals,
-        category: "showes"
-      },
-        {
-        name: "Hammock",
-        description: "High quality fabric, ideal for a day out",
-        price: 400,
-        avaliability: "Available",
-        img: Hammock,
-        category: "leasure"
-      },
-        {
-        name: "Hiking showes",
-        description: "Stabel, flexible sole, greate for hiking everywhere",
-        price: 500,
-        avaliability: "Out of stock ",
-        img: Shoe,
-        category: "showes"
-      },
-        {
-        name: "Coffee kit",
-        description: "Convenient, compact and light weighted",
-        price: 200,
-        avaliability: "Available",
-        img: Coffee,
-        category: "leasure" 
-      },
-    ];
+    {
+      id: "111111",
+      name: "2 pl tent",
+      description: "High quality tent for two people",
+      price: 250,
+      avaliability: "Available",
+      img: TentFor2,
+      category: "tents",
+      tentImg1: TentImg1,
+      tentImg2: TentImg2,
+    },
+    {
+      id: "222222",
+      name: "Pocket knife",
+      description: "strong and reliable, a must have!",
+      price: 300,
+      avaliability: "Available",
+      img: PocketKnife,
+      category: "knives",
+    },
+    {
+      id: "333333",
+      name: "Shoresh sandals",
+      description: "the most convenient sandals for long walks",
+      price: 270,
+      avaliability: "Available",
+      img: Sandals,
+      category: "showes",
+    },
+    {
+      id: "444444",
+      name: "Hammock",
+      description: "High quality fabric, ideal for a day out",
+      price: 400,
+      avaliability: "Available",
+      img: Hammock,
+      category: "leasure",
+    },
+    {
+      id: "555555",
+      name: "Hiking showes",
+      description: "Stabel, flexible sole, greate for hiking everywhere",
+      price: 500,
+      avaliability: "Out of stock ",
+      img: Shoe,
+      category: "showes",
+    },
+    {
+      id: "666666",
+      name: "Coffee kit",
+      description: "Convenient, compact and light weighted",
+      price: 200,
+      avaliability: "Available",
+      img: Coffee,
+      category: "leasure",
+    },
+  ];
 
-
-    const orders = [
-      {
-        OrderID: 111111,
-        ProductsID: 222222,
-        Products: ["Pocket knife", "Hammock"],
-        Quantity: [1, 1],
-        Price: 50,
-        CustomerID: 333333,
-        Date: new Date(),
-      },
-      {
-        OrderID: 444444,
-        ProductsID: 555555,
-        Products: ["2 pl tent", "Coffee kit"],
-        Quantity: [2, 1],
-        Price: 100,
-        CustomerID: 6666666,
-        Date: new Date(),
-      },
-    ];
+  const orders = [
+    {
+      OrderID: 111111,
+      ProductsID: 222222,
+      Products: ["Pocket knife", "Hammock"],
+      Quantity: [1, 1],
+      Price: 50,
+      CustomerID: 333333,
+      Date: new Date(),
+    },
+    {
+      OrderID: 444444,
+      ProductsID: 555555,
+      Products: ["2 pl tent", "Coffee kit"],
+      Quantity: [2, 1],
+      Price: 100,
+      CustomerID: 6666666,
+      Date: new Date(),
+    },
+  ];
 
   return (
     <div className="App">
@@ -179,8 +188,16 @@ function App() {
             <Route path="/accessibleTrips" exact component={AccessibleTrips} />
             <Route path="/organized" exact component={Organized} />
             <Route path="/gallery" exact component={Gallery} />
-            <Route path="/store" exact component={() => <Store items={items}/>} />
-            <Route path="/singleItem" exact component={() => <SingleItem item={items[0]}/>} />
+            <Route
+              path="/store"
+              exact
+              component={() => <Store items={items} />}
+            />
+            <Route
+              path="/singleItem"
+              exact
+              component={() => <SingleItem item={items[0]} />}
+            />
             <Route path="/weAreHiring" exact component={WeAreHiring} />
             <Route path="/mailMe" exact component={MailMe} />
             <Route path="/fromTheMedia" exact component={FromTheMedia} />
@@ -191,10 +208,18 @@ function App() {
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/createAccount" exact component={CerateAccount} />
             <Route path="/linkMe" exact component={LinkMe} />
-            <Route path="/reviewsAndRatings" exact component={ReviewsAndRatings}/>
-            <Route path="/addReview" exact component={AddReview}/>
-            <Route path="/ordersTable" exact component={() => <OrdersTable order={orders}/>} />
-            <Route path="/forgotPass" exact component={ForgotPass}/>
+            <Route
+              path="/reviewsAndRatings"
+              exact
+              component={ReviewsAndRatings}
+            />
+            <Route path="/addReview" exact component={AddReview} />
+            <Route
+              path="/ordersTable"
+              exact
+              component={() => <OrdersTable order={orders} />}
+            />
+            <Route path="/forgotPass" exact component={ForgotPass} />
             <Route path="/test_1" exact component={Test_1} />
             {/* <Route path='/orderPage' exact component = {OrderPage}/>
       <Route path='/' exact component = {}/> */}

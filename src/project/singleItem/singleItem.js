@@ -20,7 +20,7 @@ import "./singleItem.css";
 
 function SingleItem(props) {
   let [counter, setCount] = useState(1);
-  const [itemsArray, setItemsArray] = useState([props.item]);
+  const [itemsArray, setItemsArray] = useState([props.items]);
 
   function add() {
     setCount(counter + 1);
@@ -32,7 +32,14 @@ function SingleItem(props) {
   return (
     <div>
       <Row>
-        <Col xs={2}></Col>
+        <Col xs={2}>
+        <Card style={{ width: "10rem", height: "8rem" }} className="sideImgCard">
+            <Card.Img variant="top" src={props.item.img1} />
+          </Card>
+          <Card style={{ width: "10rem", height: "8rem" }} className="sideImgCard">
+            <Card.Img variant="top" src={props.item.img2} />
+          </Card>
+        </Col>
 
         <Col xs={6} id="colItem">
           <Card style={{ width: "40rem", height: "30rem" }} id="itemImgCard">
@@ -67,7 +74,7 @@ function SingleItem(props) {
                     +1
                   </Button>
                 </ButtonGroup>
-                <Card.Link href="/store">Back to store</Card.Link>
+                <Card.Link href="/store" style={{color: "gray"}}>Back to store</Card.Link>
                 <Card.Link href="#"></Card.Link>
               </ListGroup>
             </Card.Body>
@@ -80,12 +87,14 @@ function SingleItem(props) {
           </Card>
         </Col>
 
-        <Col xs={4}></Col>
+        <Col xs={4}>
+
+        </Col>
       </Row>
 
       {/* <Row>
         <h5 id="mightLike">You might also like:</h5>
-        {items.filter(item => item.category = this.item.catagory).map(setItemsArray =>(
+        {items.filter(item => item.category === item.catagory).map(setItemsArray =>(
             <div key={index}>
               <Card style={{ width: "18rem", height: "500px" }} id="storeCard">
                 <Card.Img style={{width: "10rem", height: "200px"}} variant="top" src={item.img} />
@@ -93,6 +102,7 @@ function SingleItem(props) {
                   <Card.Title>{item.name}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>
                 </Card.Body>
+          
                 </Card> 
                 </div>
                 ))}

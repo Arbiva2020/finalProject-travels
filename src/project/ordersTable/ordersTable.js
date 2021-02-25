@@ -20,7 +20,7 @@ function ordersTable(props) {
             <th>Quantity</th>
             <th>Price</th>
             <th>Customer ID</th>
-            <th>Date of order</th>
+            <th>Date</th>
           </tr>
         </thead>
         {/* <tbody> */}
@@ -33,6 +33,7 @@ function ordersTable(props) {
               <td> {element.Quantity}</td>
               <td> {element.Price}</td>
               <td> {element.CustomerID}</td>
+              <th>{element.Date.toUTCString()}</th>
             </tr>
 
             // </React.Fragment>

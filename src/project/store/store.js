@@ -54,7 +54,7 @@ function Store(props) {
         <Col className="flex">
           {itemsArray.map((item, index) => (
             <div key={index}>
-              <Card style={{ width: "18rem", height: "500px" }} id="storeCard">
+              <Card style={{ width: "18rem", height: "500px", alignItems:"center" }} id="storeCard">
                 <Card.Img style={{width: "10rem", height: "200px"}} variant="top" src={item.img} />
                 <Card.Body>
                   <Card.Title>{item.name}</Card.Title>

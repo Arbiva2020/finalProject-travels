@@ -1,81 +1,80 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Card, Button, Col, Form, Row, Nav } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import deer from "../../images/3733725672.jpg";
 import "./logIn.css";
 
 function LogIn(props) {
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(watch("example"));
+
   return (
     <div>
+      <p>
+        <h3 id="h3login">Log In:</h3>
+      </p>
+
       <Row>
         <Col xs={7} id="logInCol">
-          <Form id="logInForm">
-            <p>
-              <h3 id="h3login">Log In:</h3>
-            </p>
-            <Form.Group as={Row} controlId="formPlaintextEmail">
-              <Form.Label column sm="2">
-                <h6 className="formInput">Email:</h6>
-              </Form.Label>
-              <Col xs={7}>
-                <Form.Control
-                  plaintext
-                  readOnly
-                  defaultValue="email@example.com"
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} controlId="formPlaintextPassword">
-              <Form.Label column sm="2">
-                <h6 className="formInput">Password:</h6>
-              </Form.Label>
-              <Col xs={7}>
-                <Form.Control type="password" placeholder="Password" />
-              </Col>
-            </Form.Group>
-
-            <div id="forgot">
-              <Row>
-                {/* <LinkContainer to='/forgotPass'><Nav.Link style={{color: "black"}}>forgot password?</Nav.Link></LinkContainer> */}
-                <Nav.Link
-                  id="navForgot"
-                  style={{ color: "gray" }}
-                  href="/forgotPass"
-                >
-                  forgot password?
-                </Nav.Link>
-                <Nav.Link href="/createAccount" style={{ color: "gray" }}>
-                  Create New Account
-                </Nav.Link>
-              </Row>
-            </div>
-
-<div>
-          <Row>
-            <Col xs={7} style={{ margin: "20px" }}>
-              <Form.Check
-                id="logCheck"
-                type="checkbox"
-                className="mb-2 mr-sm-2"
-                label="Remember me"
+          <Form onSubmit={handleSubmit(onSubmit)} id="logInForm">
+            <Form.Group controlId="formBasicEmail" style={{ margin: "20px" }}>
+              {/* <Form.Label>Email address</Form.Label> */}
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="Email"
+                ref={register({ required: true, pattern: /^\S+@\S+$/i })}
               />
-            </Col>
-            </Row>
-            </div>
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            {errors.Email && <span>This field is required</span>}
 
-            <Button
-              variant="secondary"
-              type="submit"
-              className="mb-2"
+            <Form.Group
+              controlId="formBasicPassword"
               style={{ margin: "20px" }}
             >
+              {/* <Form.Label>Password</Form.Label> */}
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                ref={register({ required: true })}
+              />
+            </Form.Group>
+            {errors.Email && <span>This field is required</span>}
+            <Row>
+              <Nav.Link
+                id="navForgot"
+                style={{ color: "gray", margin: "20px" }}
+                href="/forgotPass"
+              >
+                forgot password?
+              </Nav.Link>
+              <Nav.Link
+                href="/createAccount"
+                style={{ color: "gray", margin: "20px" }}
+              >
+                Create New Account
+              </Nav.Link>
+            </Row>
+            <Form.Group
+              controlId="formBasicCheckbox"
+              style={{ margin: "20px" }}
+            >
+              <Form.Check type="checkbox" label="Remember me" name="log in" ref={register} />
+            </Form.Group>
+            <Button variant="primary" type="submit" style={{ margin: "20px" }}>
               Log in
             </Button>
+            <div></div>
           </Form>
         </Col>
 
-        <Col xs={5}>
+        <Col xs={5} id="deerImgCol">
           <img src={deer} id="deerLog" class="img-fluid" />
         </Col>
       </Row>

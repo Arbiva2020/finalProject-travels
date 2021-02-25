@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Form, Col, Row, Img, Button, Card } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import "./contactUs.css";
@@ -11,66 +12,101 @@ function ContactUs(props) {
     setForm(name);
   }
 
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(watch("example"));
+
   return (
     <div>
       <Row>
         <Col xs={7}>
           <h2 id="h2contact">Let's talk.</h2>
           <h1 id="h1contact">You first.</h1>
-          <Form id="contact">
+          <Form onSubmit={handleSubmit(onSubmit)} id="contact">
             <Form.Row>
               <Col xs={3}>
                 <Form.Control
                   as="select"
                   className="mr-sm-2"
-                  id="inlineFormCustomSelect"
                   custom
+                  ref={register}
+                  id="inlineFormCustomSelect"
                 >
-                  <option value="0">Honorific...</option>
-                  <option value="1">Mr.</option>
-                  <option value="2">Miss.</option>
-                  <option value="3">Mrs.</option>
+                  <option name="Honorific" ref={register}>
+                    Honorific...
+                  </option>
+                  <option value="Mr.">Mr.</option>
+                  <option value="Miss.">Miss.</option>
+                  <option value="Mrs.">Mrs.</option>
                 </Form.Control>
               </Col>
               <Col>
-                <Form.Control placeholder="First Name" id="nameInput" />
+                <Form.Control
+                  placeholder="First Name"
+                  id="nameInput"
+                  name="firstName"
+                  ref={register}
+                />
+                {errors.Email && <span>This field is required</span>}
               </Col>
               <Col>
-                <Form.Control placeholder="Last Name" />
+                <Form.Control
+                  placeholder="Last Name"
+                  name="LastName"
+                  ref={register}
+                />
+                {errors.Email && <span>This field is required</span>}
               </Col>
             </Form.Row>
-            <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Group>
               <Form.Label></Form.Label>
-              <Form.Control placeholder="05X-XXXXXXX" />
+              <Form.Control
+                placeholder="05X-XXXXXXX"
+                input
+                name="phone number"
+                type="number"
+                ref={register}
+              />
               <Form.Label></Form.Label>
-              <Form.Control placeholder="Adress" />
+              <Form.Control placeholder="Adress" name="Adress" ref={register} />
             </Form.Group>
 
             <Form.Row>
               <Col xs={7}>
-                <Form.Control placeholder="City" />
+                <Form.Control placeholder="City" name="City" ref={register} />
               </Col>
               <Col>
-                <Form.Control placeholder="State" />
+                <Form.Control placeholder="State" name="State" ref={register} />
               </Col>
               <Col>
-                <Form.Control placeholder="Zip" />
+                <Form.Control placeholder="Zip" name="Zip" ref={register} />
               </Col>
             </Form.Row>
-            <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Group>
               <Form.Label></Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" />
+              <Form.Control
+                placeholder="name@example.com"
+                type="text"
+                name="Email"
+                ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+              />
+              {errors.Email && <span>This field is required</span>}
             </Form.Group>
 
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>What can we do for U?</Form.Label>
-              <Form.Control as="textarea" placeholder="What can we do for U?" rows={3} />
+              <Form.Control
+                as="textarea"
+                placeholder="What can we do for U?"
+                name="textextra"
+                ref={register}
+              />
             </Form.Group>
-          </Form>
 
-          <Button onClick={updateForm} id="contactButt">
-            Submit
-          </Button>
+            <Button type="submit" id="contactButt">
+              Submit
+            </Button>
+          </Form>
         </Col>
 
         <Col xs={5}>

@@ -23,14 +23,21 @@ import trainImg from "../../images/Flag_of_Israel_Railways.svg.jpg";
 import eggedImg from "../../images/4846962.jpg";
 import metroImg from "../../images/יהיה-בסדר-מטרופולין.jpg";
 import israImg from "../../images/z1g5npkm.4kg.jpg";
-import Calendar from "react-calendar";
 
 // handle upper and lower case
-const places = ["Eilat", "Jerusalem", "galil", "Arava", "Golan", "sea of Galilee", "Tel-Aviv"];
+const places = [
+  "Eilat",
+  "Jerusalem",
+  "galil",
+  "Arava",
+  "Golan",
+  "sea of Galilee",
+  "Tel-Aviv",
+];
 
 function SiteCard(props) {
   const [productsArray, setProductsArray] = useState(props.products);
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
   const [checkedProducts, setCheckedProducts] = useState([]);
   const [checkboxes, setCheckboxes] = useState(
     places.reduce(
@@ -48,19 +55,19 @@ function SiteCard(props) {
     });
   };
 
-  const selectAll = () => checkAllBoxes(true);
-  const diselectAll = () => checkAllBoxes(false);
+  // const selectAll = () => checkAllBoxes(true);
+  // const diselectAll = () => checkAllBoxes(false);
 
   const handleChange = (e) => {
     const { name } = e.target;
     setCheckboxes({ ...checkboxes, [name]: !checkboxes[name] });
   };
 
-  const ReactCalendar = () => {
-    const onChange = (date) => {
-      setDate(date);
-    };
-  };
+  // const ReactCalendar = () => {
+  //   const onChange = (date) => {
+  //     setDate(date);
+  //   };
+  // };
 
   function sortByRating() {
     console.log("rating");
@@ -77,10 +84,10 @@ function SiteCard(props) {
     );
   };
 
-  
-
   const relevantProducts = productsArray.filter(({ name }) =>
-    checkedProducts.map((checkedName) => checkedName.toUpperCase()).includes(name.toUpperCase())
+    checkedProducts
+      .map((checkedName) => checkedName.toUpperCase())
+      .includes(name.toUpperCase())
   );
 
   return (
@@ -89,28 +96,50 @@ function SiteCard(props) {
         <Col xs={2} id="check">
           <Form>
             <Form.Label>
-              <h5>Select:</h5>
+              <h5 style={{fontFamily: "Georgia, Times New Roman, Times, serif"}}>Select:</h5>
             </Form.Label>
-            {places.map(place => (<Form.Check
-              type="checkbox"
-              label={place}
-              name={place}
-              id="formHorizontalRadios1"
-              onChange={handleChange}
-            />))}
+            {places.map((place) => (
+              <Form.Check
+                type="checkbox"
+                label={place}
+                name={place}
+                id="formHorizontalRadios1"
+                onChange={handleChange}
+              />
+            ))}
             <button id="filterCheck" onClick={handleClick}>
               Filter
             </button>
           </Form>
 
           <div>
-            <Calendar selectRange />
-            {console.log("")}
+            <h6>Available offers by date:</h6>
+            <label for="start" style={{marginTop:"20px"}}>Arrival date:</label>
+            <input
+              type="date"
+              id="start"
+              name="trip-start"
+              // value="2018-07-22"
+              // min=  "new Date()"
+              // max=""
+            />
+
+            <label for="start" style={{marginTop:"20px"}}>Departure date:</label>
+            <input
+              type="date"
+              id="start"
+              name="trip-start"
+              // value="2018-07-22"
+              // min=""
+              // max=""
+            />
+
+            <Button type="submit" style={{backgroundColor:"gray", borderStyle:"solid", borderColor:"black", marginTop:"20px"}}>HIT ME!</Button>
           </div>
 
           <div id="transportation">
             <p>
-              <h5>Transportation:</h5>
+              <h5 style={{fontFamily: "Georgia, Times New Roman, Times, serif"}}>Transportation:</h5>
             </p>
             <Card className="transportation">
               <Card.Link href="https://www.egged.co.il/">
@@ -186,8 +215,8 @@ function SiteCard(props) {
         </Col>
 
         <Col xs={2} id="filterByPrice">
-          <Form>
-            <h5 id="sortByPrice">Filter by price:</h5>
+          <Form style={{textAlign: "left"}}>
+            <h5 id="sortByPrice" style={{fontFamily: "Georgia, Times New Roman, Times, serif"}}>Filter by price:</h5>
             <Form.Check
               type="checkbox"
               label="1000-2000"
@@ -211,70 +240,70 @@ function SiteCard(props) {
             <Form.Check type="checkbox" label="All" className="priceLevel" />
           </Form>
 
-              <div style={{textAlign:"left"}}>
-          <div>
-            <p>
-              <h5 id="ratingHeadline">Select rating:</h5>
-            </p>
-            <input type="radio" id="one" name="drone" />
-            <label for="huey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-          </div>
-          <div>
-            <input type="radio" id="two" name="drone" />
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-          </div>
-          <div>
-            <input type="radio" id="three" name="drone" />
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-          </div>
-          <div>
-            <input type="radio" id="four" name="drone" />
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-          </div>
-          <div>
-            <input type="radio" id="five" name="drone" />
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-            <label for="dewey">
-              <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
-            </label>
-          </div>
+          <div style={{ textAlign: "left" }}>
+            <div>
+              <p>
+                <h5 id="ratingHeadline" style={{fontFamily: "Georgia, Times New Roman, Times, serif", textAlign:"left"}}>Select rating:</h5>
+              </p>
+              <input type="radio" id="one" name="drone" />
+              <label for="huey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="two" name="drone" />
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="three" name="drone" />
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="four" name="drone" />
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="five" name="drone" />
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+              <label for="dewey">
+                <FontAwesomeIcon style={{ color: "yellow" }} icon={faStar} />
+              </label>
+            </div>
           </div>
 
           <div id="byRating">

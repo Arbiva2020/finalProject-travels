@@ -12,6 +12,13 @@
     justify-content: center;
 }
 
+.sideImgCard {
+    display:flex;
+    justify-content:right;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
 #itemDetailCard {
     margin-top: 40px;
     border-style: none;

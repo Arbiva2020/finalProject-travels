@@ -17,7 +17,7 @@
 
 #nameInputB,
 #nameInputC {
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 #createButt {
@@ -31,4 +31,8 @@
   font-weight: bolder;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#nameDiv {
+  align-items: left;
 }
