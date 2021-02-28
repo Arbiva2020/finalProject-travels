@@ -15,7 +15,8 @@ function HomePage(props) {
 return (
 <Container>
     <Card>
-        <Card.Body id="covid" href="/covid19Info">Find out more about COVID-19 restrictions <FontAwesomeIcon icon={faInfoCircle} /></Card.Body>
+        <Card.Link id="covid" style={{height:"50px", textAlign:"center"}}>
+          Find out more about COVID-19 restrictions <FontAwesomeIcon icon={faInfoCircle} href="https://govextra.gov.il/ministry-of-health/corona/corona-virus/"/></Card.Link>
     </Card>
 
 

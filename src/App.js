@@ -41,6 +41,7 @@ import Coffee from "../src/images/images.store/64072_0_1.jpg";
 import Test_1 from "./project/test_1/test_1";
 import TentImg1 from "../src/images/images.store/greenTent1.jpg";
 import TentImg2 from "../src/images/images.store/greenTent2.jpg";
+import { useState } from "react";
 
 function App() {
   const products = [
@@ -95,6 +96,7 @@ function App() {
       avaliability: "Available",
       img: TentFor2,
       category: "tents",
+      catagoryB: "camping",
       tentImg1: TentImg1,
       tentImg2: TentImg2,
     },
@@ -106,6 +108,7 @@ function App() {
       avaliability: "Available",
       img: PocketKnife,
       category: "knives",
+      catagoryB: "camping",
     },
     {
       id: "333333",
@@ -115,6 +118,7 @@ function App() {
       avaliability: "Available",
       img: Sandals,
       category: "showes",
+      catagoryB: "camping",
     },
     {
       id: "444444",
@@ -124,6 +128,7 @@ function App() {
       avaliability: "Available",
       img: Hammock,
       category: "leasure",
+      catagoryB: "camping",
     },
     {
       id: "555555",
@@ -133,6 +138,7 @@ function App() {
       avaliability: "Out of stock ",
       img: Shoe,
       category: "showes",
+      catagoryB: "hiking",
     },
     {
       id: "666666",
@@ -142,6 +148,7 @@ function App() {
       avaliability: "Available",
       img: Coffee,
       category: "leasure",
+      catagoryB: "camping",
     },
   ];
 
@@ -166,6 +173,8 @@ function App() {
     },
   ];
 
+  const [gear, setGear] = useState(items[0]);
+
   return (
     <div className="App">
       <div id="content">
@@ -188,15 +197,11 @@ function App() {
             <Route path="/accessibleTrips" exact component={AccessibleTrips} />
             <Route path="/organized" exact component={Organized} />
             <Route path="/gallery" exact component={Gallery} />
-            <Route
-              path="/store"
-              exact
-              component={() => <Store items={items} />}
-            />
+            <Route path="/store" component={() => <Store items={items} />} />
             <Route
               path="/singleItem"
               exact
-              component={() => <SingleItem item={items[0]} />}
+              component={() => <SingleItem item={gear} />}
             />
             <Route path="/weAreHiring" exact component={WeAreHiring} />
             <Route path="/mailMe" exact component={MailMe} />

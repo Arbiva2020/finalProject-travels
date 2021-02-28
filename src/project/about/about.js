@@ -22,7 +22,7 @@ return(
  <Row>
  <Card id="aboutInfo">
   <Card.Body>
-    <p id="headLine">About Travel Israel:</p>
+    <h2 id="headLine">About Travel Israel:</h2>
     <p id="aboutText">We are a part of the Travel Israel Group, a NASDAQ listed company since 2003 with over 100 employees and over 20,000 members, 
     
     making it one of the leading travel agencies in Israel, deallind only with in-state turism.

@@ -3,6 +3,17 @@
   padding: 10px;
 }
 
+#storeLinkContainer {
+  border-style: solid;
+  border-color: black;
+  background-color:cornsilk;
+  width: 100%;
+  color: black;
+  font-size: large;
+  font-style: oblique;
+  font-weight: bolder;
+}
+
 #filterByPrice {
   display: inline;
   text-align: center;
@@ -13,7 +24,7 @@
 .flex {
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 #dropdown-item-button {

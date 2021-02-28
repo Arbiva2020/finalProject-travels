@@ -29,15 +29,26 @@ function SingleItem(props) {
     setCount(counter - 1);
   }
 
+
+// const addToHeandler = () => {
+//   props.addToCart(props.item.id)
+// }
+
+// const addToWishlist = ()=> {
+//   props.addToWishlist(props.item.id)
+// }
+
+
+
   return (
     <div>
       <Row>
         <Col xs={2}>
         <Card style={{ width: "10rem", height: "8rem" }} className="sideImgCard">
-            <Card.Img variant="top" src={props.item.img1} />
+            <Card.Img variant="top" src={props.item.tentImg1} />
           </Card>
           <Card style={{ width: "10rem", height: "8rem" }} className="sideImgCard">
-            <Card.Img variant="top" src={props.item.img2} />
+            <Card.Img variant="top" src={props.item.tentImg2} />
           </Card>
         </Col>
 
@@ -51,6 +62,9 @@ function SingleItem(props) {
               <Card.Text>{props.item.description}</Card.Text>
               <ListGroup className="list-group-flush">
                 <ListGroupItem>{props.item.price}</ListGroupItem>
+
+{/* <itemInfo addToCart={addToCartHandler} detail={item} /> */}
+
                 <ButtonGroup aria-label="Basic example" id="quantity">
                   <Button
                     variant="secondary"

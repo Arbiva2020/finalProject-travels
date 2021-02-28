@@ -23,10 +23,11 @@ function AddReview(props) {
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Row>
               <Col>
-                <Form.Control placeholder="First name" name="First name" ref={register}/>
+                <Form.Control placeholder="First name" name="FirstName" ref={register}/>
+                {errors.FirstName && <span>This field is required</span>}
               </Col>
               <Col>
-                <Form.Control placeholder="Last name" name="Last name" ref={register}/>
+                <Form.Control placeholder="Last name" name="LastName" ref={register}/>
               </Col>
             </Row>
             <Form.Group controlId="formBasicEmail">

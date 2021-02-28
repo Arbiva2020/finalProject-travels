@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { render } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import {LinkContainer} from "react-router-bootstrap";
 import {
   Card,
   ListGroup,
@@ -12,6 +13,7 @@ import {
   Col,
   Container,
   DropdownButton,
+  Nav,
   Dropdown,
 } from "react-bootstrap";
 import "./siteCard.css";
@@ -92,6 +94,8 @@ function SiteCard(props) {
 
   return (
     <Container>
+      <LinkContainer to='/store' id="storeLinkContainer">
+        <Nav.Link>Need camping equipment? Hiking gear? visit our store today!</Nav.Link></LinkContainer>
       <Row>
         <Col xs={2} id="check">
           <Form>

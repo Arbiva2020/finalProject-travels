@@ -38,8 +38,8 @@ function Header() {
           <Nav>
             <Nav.Link href="/createAccount">New Account</Nav.Link>
             <Nav.Link eventKey={2} href="/logIn">Log In</Nav.Link>
-            <LinkContainer to='/cart' style={{ fontSize: "30px", color:"white"}}><FontAwesomeIcon icon={faShoppingCart}/></LinkContainer>
-            <LinkContainer to='/wishlist' style={{ margin: "5px", fontSize: "20px", color:"white"}}><FontAwesomeIcon icon={faHeart}/></LinkContainer>
+            <LinkContainer to='/cart' style={{ fontSize: "25px", color:"white", marginTop:"5px"}}><FontAwesomeIcon icon={faShoppingCart}/></LinkContainer>
+            <LinkContainer to='/wishlist' style={{ margin: "8px", fontSize: "20px", color:"white"}}><FontAwesomeIcon icon={faHeart}/></LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

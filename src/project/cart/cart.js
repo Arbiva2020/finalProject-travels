@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import {Card, Button, Col, Table, Row } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import "./cart.css";
 
+// function TotalPrice(){
+
+// }
 
 function Cart(props) {
-    let [items, setItems] = useState(props.items);
+    let [items, setItems] = useState([]);
     let initialSum = 0;
     for (let item of items){
         initialSum += parseInt(item.price);
@@ -30,31 +33,21 @@ return(
   <thead>
     <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>Item Name</th>
+      <th>Item description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Remove Item</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+
     </tr>
   </tbody>
+
+
+
 </Table>
 </Col>
 
