@@ -12,12 +12,13 @@ function LogIn(props) {
 
   return (
     <div>
-      <p>
-        <h3 id="h3login">Log In:</h3>
-      </p>
+      
 
       <Row>
         <Col xs={7} id="logInCol">
+          <p>
+        <h3 id="h3login">Log In:</h3>
+      </p>
           <Form onSubmit={handleSubmit(onSubmit)} id="logInForm">
             <Form.Group controlId="formBasicEmail" style={{ margin: "20px" }}>
               {/* <Form.Label>Email address</Form.Label> */}
@@ -75,7 +76,7 @@ function LogIn(props) {
         </Col>
 
         <Col xs={5} id="deerImgCol">
-          <img src={deer} id="deerLog" class="img-fluid" />
+          <img src={deer} id="deerLog" />
         </Col>
       </Row>
     </div>

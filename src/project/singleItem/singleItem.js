@@ -88,7 +88,7 @@ function SingleItem(props) {
                     +1
                   </Button>
                 </ButtonGroup>
-                <Card.Link href="/store" style={{color: "gray"}}>Back to store</Card.Link>
+                <Card.Link href="/store" style={{color: "gray", margin:"20px"}}>Back to store</Card.Link>
                 <Card.Link href="#"></Card.Link>
               </ListGroup>
             </Card.Body>
@@ -96,7 +96,7 @@ function SingleItem(props) {
               Add to cart
             </Button>
             <Button variant="secondary" onClick={""} id="addToWishlist">
-              Add to wishlist
+              Wishlist
             </Button>
           </Card>
         </Col>

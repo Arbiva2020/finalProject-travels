@@ -1,7 +1,7 @@
 import { React, useState, Fragment } from "react";
 import { Card } from "react-bootstrap";
 import { Table, Row, Col } from "react-bootstrap/";
-import tentImg from "../../images/images.store/3466701071.jpg";
+// import tentImg from "../images/3466701071.jpg";
 import "./ordersTable.css";
 
 function ordersTable(props) {

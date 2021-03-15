@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import {LinkContainer} from "react-router-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import {
   Card,
   ListGroup,
@@ -25,6 +25,7 @@ import trainImg from "../../images/Flag_of_Israel_Railways.svg.jpg";
 import eggedImg from "../../images/4846962.jpg";
 import metroImg from "../../images/יהיה-בסדר-מטרופולין.jpg";
 import israImg from "../../images/z1g5npkm.4kg.jpg";
+import axios from "axios";
 
 // handle upper and lower case
 const places = [
@@ -38,8 +39,11 @@ const places = [
 ];
 
 function SiteCard(props) {
-  const [productsArray, setProductsArray] = useState(props.products);
-  // const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [productsArray, setProductsArray] = useState([]);
+  const [errorMassage, setErrorMassage] = useState("");
+  const devUrl = "http://localhost:3001";
   const [checkedProducts, setCheckedProducts] = useState([]);
   const [checkboxes, setCheckboxes] = useState(
     places.reduce(
@@ -51,25 +55,21 @@ function SiteCard(props) {
     )
   );
 
-  const checkAllBoxes = (isSelected) => {
-    Object.keys(checkboxes).forEach((checkbox) => {
-      setCheckboxes({ ...checkboxes, [checkbox]: isSelected });
-    });
-  };
-
-  // const selectAll = () => checkAllBoxes(true);
-  // const diselectAll = () => checkAllBoxes(false);
+  useEffect(async () => {
+    try {
+      const res = await axios("http://localhost:3001/products");
+      console.log(res.data);
+      setProductsArray(res.data);
+    } catch (error) {
+      console.log(error);
+      setErrorMassage(error.Error);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name } = e.target;
     setCheckboxes({ ...checkboxes, [name]: !checkboxes[name] });
   };
-
-  // const ReactCalendar = () => {
-  //   const onChange = (date) => {
-  //     setDate(date);
-  //   };
-  // };
 
   function sortByRating() {
     console.log("rating");
@@ -94,20 +94,27 @@ function SiteCard(props) {
 
   return (
     <Container>
-      <LinkContainer to='/store' id="storeLinkContainer">
-        <Nav.Link>Need camping equipment? Hiking gear? visit our store today!</Nav.Link></LinkContainer>
+      <LinkContainer to="/store" id="storeLinkContainer">
+        <Nav.Link>
+          Need camping equipment? Hiking gear? visit our store today!
+        </Nav.Link>
+      </LinkContainer>
       <Row>
         <Col xs={2} id="check">
           <Form>
             <Form.Label>
-              <h5 style={{fontFamily: "Georgia, Times New Roman, Times, serif"}}>Select:</h5>
+              <h5
+                style={{ fontFamily: "Georgia, Times New Roman, Times, serif" }}
+              >
+                Select:
+              </h5>
             </Form.Label>
             {places.map((place) => (
               <Form.Check
                 type="checkbox"
                 label={place}
                 name={place}
-                id="formHorizontalRadios1"
+                id=""
                 onChange={handleChange}
               />
             ))}
@@ -118,7 +125,9 @@ function SiteCard(props) {
 
           <div>
             <h6>Available offers by date:</h6>
-            <label for="start" style={{marginTop:"20px"}}>Arrival date:</label>
+            <label for="start" style={{ marginTop: "20px" }}>
+              Arrival date:
+            </label>
             <input
               type="date"
               id="start"
@@ -128,7 +137,9 @@ function SiteCard(props) {
               // max=""
             />
 
-            <label for="start" style={{marginTop:"20px"}}>Departure date:</label>
+            <label for="start" style={{ marginTop: "20px" }}>
+              Departure date:
+            </label>
             <input
               type="date"
               id="start"
@@ -138,12 +149,26 @@ function SiteCard(props) {
               // max=""
             />
 
-            <Button type="submit" style={{backgroundColor:"gray", borderStyle:"solid", borderColor:"black", marginTop:"20px"}}>HIT ME!</Button>
+            <Button
+              type="submit"
+              style={{
+                backgroundColor: "gray",
+                borderStyle: "solid",
+                borderColor: "black",
+                marginTop: "20px",
+              }}
+            >
+              HIT ME!
+            </Button>
           </div>
 
           <div id="transportation">
             <p>
-              <h5 style={{fontFamily: "Georgia, Times New Roman, Times, serif"}}>Transportation:</h5>
+              <h5
+                style={{ fontFamily: "Georgia, Times New Roman, Times, serif" }}
+              >
+                Transportation:
+              </h5>
             </p>
             <Card className="transportation">
               <Card.Link href="https://www.egged.co.il/">
@@ -176,7 +201,10 @@ function SiteCard(props) {
                     style={{ width: "18rem", height: "40rem" }}
                     id="siteCard"
                   >
-                    <Card.Img variant="top" src={product.img} />
+                    <Card.Img
+                      variant="top"
+                      src={`${devUrl}/images/${product.img}`}
+                    />
                     <Card.Body>
                       <Card.Title>{product.name}</Card.Title>
                       <Card.Text>{product.description}</Card.Text>
@@ -199,7 +227,10 @@ function SiteCard(props) {
                     style={{ width: "18rem", height: "40rem" }}
                     id="siteCard"
                   >
-                    <Card.Img variant="top" src={product.img} />
+                    <Card.Img
+                      variant="top"
+                      src={`${devUrl}/images/${product.img}`}
+                    />
                     <Card.Body>
                       <Card.Title>{product.name}</Card.Title>
                       <Card.Text>{product.description}</Card.Text>
@@ -219,35 +250,55 @@ function SiteCard(props) {
         </Col>
 
         <Col xs={2} id="filterByPrice">
-          <Form style={{textAlign: "left"}}>
-            <h5 id="sortByPrice" style={{fontFamily: "Georgia, Times New Roman, Times, serif"}}>Filter by price:</h5>
+          <Form style={{ textAlign: "left" }}>
+            <h5
+              id="sortByPrice"
+              style={{ fontFamily: "Georgia, Times New Roman, Times, serif" }}
+            >
+              Filter by price:
+            </h5>
             <Form.Check
               type="checkbox"
               label="1000-2000"
               className="priceLevel"
+              onChange={handleChange}
             />
             <Form.Check
               type="checkbox"
               label="2000-3000"
               className="priceLevel"
+              onChange={handleChange}
             />
             <Form.Check
               type="checkbox"
               label="3000-4000"
               className="priceLevel"
+              onChange={handleChange}
             />
             <Form.Check
               type="checkbox"
               label="4000-5000"
               className="priceLevel"
+              onChange={handleChange}
             />
             <Form.Check type="checkbox" label="All" className="priceLevel" />
+            <Button onClick={"handleClick"} id="filterRating">
+              Filter
+            </Button>
           </Form>
 
           <div style={{ textAlign: "left" }}>
             <div>
               <p>
-                <h5 id="ratingHeadline" style={{fontFamily: "Georgia, Times New Roman, Times, serif", textAlign:"left"}}>Select rating:</h5>
+                <h5
+                  id="ratingHeadline"
+                  style={{
+                    fontFamily: "Georgia, Times New Roman, Times, serif",
+                    textAlign: "left",
+                  }}
+                >
+                  Select rating:
+                </h5>
               </p>
               <input type="radio" id="one" name="drone" />
               <label for="huey">
@@ -314,9 +365,6 @@ function SiteCard(props) {
             <Button onClick={sortByRating} id="sort">
               {" "}
               Sort
-            </Button>
-            <Button onClick={""} id="filterRating">
-              Filter
             </Button>
           </div>
 

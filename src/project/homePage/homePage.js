@@ -28,8 +28,8 @@ return (
       <Card.Text>
        Looking for vacation proffesionals? you googled the right place!
        Here at Travel Israel we offer you the best deals, copons and accessories
-       available today!
-       Contact us: <Button id="contactUs" href="/contactUs">Contact now!</Button>
+       available!
+       <Button id="contactUs" href="/contactUs">Contact now!</Button>
       </Card.Text>
     </Card.Body>
   </Card>
@@ -122,7 +122,7 @@ return (
 </Card> 
 
     <Card className="text-center">
-  <Card.Header><p id="galleryHeadline"><h2>Gallery</h2></p></Card.Header>
+  {/* <Card.Header><p id="galleryHeadline"><h2>Gallery</h2></p></Card.Header> */}
   <Card.Body>
     <Card.Title>Our Happy travelers</Card.Title>
     <Card.Text>
@@ -131,24 +131,6 @@ return (
     </Card.Text>
     <Button variant="primary" id="gallery" href="/gallery">To gallery</Button>
   </Card.Body>
-  <Card.Footer className="text-muted">
-  <Row id="aboutButt">
-<Button variant="secondary" id="store" href="/store">Go to store </Button>{' '}
-          <NavDropdown style={{}} title="Select area" id="nav-dropdown">
-            <NavDropdown.Item eventKey="4.1">Golan</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">Galil</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">Jerusalem</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">Central Israel</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.2">South</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">
-              Eilat and Haarava
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-          </NavDropdown>
-<Button variant="secondary" id="media" href="/fromTheMedia">From the media</Button>{' '}
-</Row> {""}
-    </Card.Footer>
 </Card>
 </Container>
   );

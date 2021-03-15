@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button, Col, NavDropdown, Row } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import JerusalemMedia from "../../images/Jerusalem_Southern_Walls_1.jpg";
 import "./fromTheMedia.css";
+
+// const[showHoverContent, setShowHoverContent] = useState(false);
+
+// function changeBackground(e) {
+//   e.target.style.background = 'red';
+// }
 
 function FromTheMedia(props) {
   return (
@@ -15,8 +21,8 @@ function FromTheMedia(props) {
           </Card.Text>
         </Card.Body>
       </Card>
-
-      <Card border="secondary" style={{ width: "18rem" }}>
+<Row>
+      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
         <Card.Body>
           <Card.Title>NO.1 travel site!</Card.Title>
           <Card.Text>
@@ -26,6 +32,51 @@ function FromTheMedia(props) {
         </Card.Body>
         <Card.Footer>Afula Times</Card.Footer>
       </Card>
+
+      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
+        <Card.Body>
+          <Card.Title>NO.1 travel site!</Card.Title>
+          <Card.Text>
+           "True proffesionals. Each and every detail was taken into account. 
+           We had the time of our lives"
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>Afula Times</Card.Footer>
+      </Card>
+
+      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
+        <Card.Body>
+          <Card.Title>NO.1 travel site!</Card.Title>
+          <Card.Text>
+           "True proffesionals. Each and every detail was taken into account. 
+           We had the time of our lives"
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>Afula Times</Card.Footer>
+      </Card>
+
+      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
+        <Card.Body>
+          <Card.Title>NO.1 travel site!</Card.Title>
+          <Card.Text>
+           "True proffesionals. Each and every detail was taken into account. 
+           We had the time of our lives"
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>Afula Times</Card.Footer>
+      </Card>
+
+      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
+        <Card.Body>
+          <Card.Title>NO.1 travel site!</Card.Title>
+          <Card.Text>
+           "True proffesionals. Each and every detail was taken into account. 
+           We had the time of our lives"
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>Afula Times</Card.Footer>
+      </Card>
+      </Row>
       <br />
     </div>
   );

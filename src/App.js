@@ -27,21 +27,23 @@ import OrdersTable from "./project/ordersTable/ordersTable";
 import Img from "./images/thenorthwest.jpg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import imgA from "../src/images/thenorthwest.jpg";
-import imgB from "../src/images/image.jpg";
-import imgC from "../src/images/Eilat.jpg";
-import imgD from "../src/images/lisr5a-explore-historic-israel-hero-1800x1000.jpg";
+import imgA from "./images/thenorthwest.jpg";
+import imgB from "./images/image.jpg";
+import imgC from "./images/Eilat.jpg";
+import imgD from "./images/lisr5a-explore-historic-israel-hero-1800x1000.jpg";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import TentFor2 from "../src/images/images.store/3466701071.jpg";
-import PocketKnife from "../src/images/images.store/59931.jpg";
-import Sandals from "../src/images/images.store/שורש-קלאסי-אלכסון-2.jpg";
-import Hammock from "../src/images/images.store/367266.jpg";
-import Shoe from "../src/images/images.store/zephyr-coyote.jpg";
-import Coffee from "../src/images/images.store/64072_0_1.jpg";
-import Test_1 from "./project/test_1/test_1";
-import TentImg1 from "../src/images/images.store/greenTent1.jpg";
-import TentImg2 from "../src/images/images.store/greenTent2.jpg";
+import sandals from "./images/shoresh.jpg";
+import TentFor2 from "./images/greenTent1.jpg";
+import PocketKnife from "./images/59931.jpg";
+import Sandals from "./images/shoresh.jpg";
+import Hammock from "./images/367266.jpg";
+import Shoe from "./images/zephyr-coyote.jpg";
+import Coffee from "./images/64072_0_1.jpg";
+import TentImg1 from "./images/greenTent1.jpg";
+import TentImg2 from "./images/greenTent2.jpg";
 import { useState } from "react";
+import { lastDayOfWeek } from "date-fns";
+// import * as api from './api';
 
 function App() {
   const products = [
@@ -54,6 +56,8 @@ function App() {
       attractions: "Jorden Kiacks",
       rating: 2,
       img: imgA,
+      region: "north",
+      keyWords: "kids, leak",
     },
     {
       name: "Eilat",
@@ -64,6 +68,8 @@ function App() {
       attractions: "Coral reef",
       rating: 4,
       img: imgC,
+      region: "south",
+      keyWords: "kids, sea, attractions",
     },
     {
       name: "Golan Hights",
@@ -74,6 +80,8 @@ function App() {
       attractions: "Banias",
       rating: 3,
       img: imgB,
+      region: "north",
+      keyWords: "kids, leak, hiking",
     },
     {
       name: "Jerusalem",
@@ -84,6 +92,8 @@ function App() {
       attractions: "Jorden Kiacks",
       rating: 2,
       img: imgD,
+      region: "east",
+      keyWords: "kids, religion, archeology",
     },
   ];
 
@@ -95,8 +105,8 @@ function App() {
       price: 250,
       avaliability: "Available",
       img: TentFor2,
-      category: "tents",
-      catagoryB: "camping",
+      category: "Tents",
+      categoryB: "camping",
       tentImg1: TentImg1,
       tentImg2: TentImg2,
     },
@@ -107,8 +117,8 @@ function App() {
       price: 300,
       avaliability: "Available",
       img: PocketKnife,
-      category: "knives",
-      catagoryB: "camping",
+      category: "Knives",
+      categoryB: "camping",
     },
     {
       id: "333333",
@@ -117,8 +127,8 @@ function App() {
       price: 270,
       avaliability: "Available",
       img: Sandals,
-      category: "showes",
-      catagoryB: "camping",
+      category: "Showes",
+      categoryB: "camping",
     },
     {
       id: "444444",
@@ -127,8 +137,8 @@ function App() {
       price: 400,
       avaliability: "Available",
       img: Hammock,
-      category: "leasure",
-      catagoryB: "camping",
+      category: "Leasure",
+      categoryB: "camping",
     },
     {
       id: "555555",
@@ -137,8 +147,8 @@ function App() {
       price: 500,
       avaliability: "Out of stock ",
       img: Shoe,
-      category: "showes",
-      catagoryB: "hiking",
+      category: "Showes",
+      categoryB: "hiking",
     },
     {
       id: "666666",
@@ -147,8 +157,8 @@ function App() {
       price: 200,
       avaliability: "Available",
       img: Coffee,
-      category: "leasure",
-      catagoryB: "camping",
+      category: "Leasure",
+      categoryB: "camping",
     },
   ];
 
@@ -177,6 +187,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <img src={shoresh} /> */}
       <div id="content">
         <BrowserRouter>
           <Header />
@@ -197,7 +208,16 @@ function App() {
             <Route path="/accessibleTrips" exact component={AccessibleTrips} />
             <Route path="/organized" exact component={Organized} />
             <Route path="/gallery" exact component={Gallery} />
-            <Route path="/store" component={() => <Store items={items} />} />
+            <Route
+              exact
+              path="/store/:filter"
+              component={() => <Store items={items} />}
+            />
+            <Route
+              exact
+              path="/store"
+              component={() => <Store items={items} />}
+            />
             <Route
               path="/singleItem"
               exact
@@ -225,14 +245,6 @@ function App() {
               component={() => <OrdersTable order={orders} />}
             />
             <Route path="/forgotPass" exact component={ForgotPass} />
-            <Route path="/test_1" exact component={Test_1} />
-            {/* <Route path='/orderPage' exact component = {OrderPage}/>
-      <Route path='/' exact component = {}/> */}
-            {/* <HomePage /> */}
-            {/* {<ProductPage product={product} />} */}
-            {/* <SiteCard products = {products}/> */}
-            {/* <img src={Img} /> */}
-            {/* <About /> */}
           </Switch>
         </BrowserRouter>
         <Footer />

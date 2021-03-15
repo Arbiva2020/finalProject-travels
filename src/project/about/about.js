@@ -54,7 +54,7 @@ return(
             <NavDropdown.Divider />
             <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
           </NavDropdown>
-<Button variant="secondary" id="contact" href="/contactUs">Contact us</Button>{' '}
+<Button variant="secondary" id="contactUsButt" href="/contactUs">Contact us</Button>{' '}
 </Row>
 </div>
 );
