@@ -184,6 +184,7 @@ function App() {
   ];
 
   const [gear, setGear] = useState(items[0]);
+  const [id, setId] = useState();
 
   return (
     <div className="App">
@@ -216,12 +217,19 @@ function App() {
             <Route
               exact
               path="/store"
-              component={() => <Store items={items} />}
+              component={() => (
+                <Store
+                  toSingleItem={(id) => {
+                    setId(id);
+                  }}
+                  items={items}
+                />
+              )}
             />
             <Route
               path="/singleItem"
               exact
-              component={() => <SingleItem item={gear} />}
+              component={() => <SingleItem item={id} />}
             />
             <Route path="/weAreHiring" exact component={WeAreHiring} />
             <Route path="/mailMe" exact component={MailMe} />

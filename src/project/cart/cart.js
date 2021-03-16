@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { Card, Button, Col, Table, Row } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import "./cart.css";
+// import { PayPalButton } from "react-paypal-button-v2";
 // import payPage from "payPage";
+
 
 // function TotalPrice(){
 
@@ -26,6 +28,30 @@ function Cart(props) {
     }
   };
 
+  // function emptyCart(){
+  //   try{
+  //     const res = await fetch("http://localhost:3000/cart/empty-cart", {
+  //       method: "DELETE", 
+  //     });
+  //     await res.json();
+  //     fetchCart();
+  //     props.history.push("/");
+  //   } catch (err){
+  //     console.log(ERROR);
+  //   }
+  // }
+
+
+  // userPurches(props){
+  //   const date = props.item.date;
+  //  return<>
+  //  <tr>
+  //    <td>
+  //      {props.item.items}
+  //    </td>
+  //    </tr>
+  //    </> 
+  // }
   // const transitionSuccess = () => {
     
   //   let variables = {
@@ -69,12 +95,16 @@ function Cart(props) {
             </tr>
           </thead>
           <tbody>
-            <tr></tr>
+            {/* {props.item.map((element. index) =>{
+              return <userPurches.item = {element} key = {index}/>
+            })} */}
           </tbody>
         </Table>
+        <Button onClick={(e)=> emptyCart()} style={{backgroundColor:"gray", color:"black", borderStyle:"solid", borderWidth:"2px"}}>Empty cart</Button>
+        {/* <PayPalButton></PayPalButton> */}
 
-{/* paypal button */}
-{/* <payPage 
+{/* paypal button
+<payPage 
 toPay = {Total}
 onSuccess = {transitionSuccess}
 transactionError = {transactionError}

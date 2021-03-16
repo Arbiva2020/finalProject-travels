@@ -21,61 +21,81 @@ function FromTheMedia(props) {
           </Card.Text>
         </Card.Body>
       </Card>
-<Row>
-      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
-        <Card.Body>
-          <Card.Title>NO.1 travel site!</Card.Title>
-          <Card.Text>
-           "True proffesionals. Each and every detail was taken into account. 
-           We had the time of our lives"
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>Afula Times</Card.Footer>
-      </Card>
+      <Row>
+        <Card
+          className="press"
+          border="secondary"
+          style={{ width: "18rem", marginLeft: "10px", marginRight: "10px" }}
+        >
+          <Card.Body>
+            <Card.Title>NO.1 travel site!</Card.Title>
+            <Card.Text>
+              "True proffesionals. Each and every detail was taken into account.
+              We had the time of our lives"
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>Afula Times</Card.Footer>
+        </Card>
 
-      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
-        <Card.Body>
-          <Card.Title>NO.1 travel site!</Card.Title>
-          <Card.Text>
-           "True proffesionals. Each and every detail was taken into account. 
-           We had the time of our lives"
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>Afula Times</Card.Footer>
-      </Card>
+        <Card
+          className="press"
+          border="secondary"
+          style={{ width: "18rem", marginLeft: "10px", marginRight: "10px" }}
+        >
+          <Card.Body>
+            <Card.Title>NO.1 travel site!</Card.Title>
+            <Card.Text>
+              "True proffesionals. Each and every detail was taken into account.
+              We had the time of our lives"
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>Afula Times</Card.Footer>
+        </Card>
 
-      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
-        <Card.Body>
-          <Card.Title>NO.1 travel site!</Card.Title>
-          <Card.Text>
-           "True proffesionals. Each and every detail was taken into account. 
-           We had the time of our lives"
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>Afula Times</Card.Footer>
-      </Card>
+        <Card
+          className="press"
+          border="secondary"
+          style={{ width: "18rem", marginLeft: "10px", marginRight: "10px" }}
+        >
+          <Card.Body>
+            <Card.Title>NO.1 travel site!</Card.Title>
+            <Card.Text>
+              "True proffesionals. Each and every detail was taken into account.
+              We had the time of our lives"
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>Afula Times</Card.Footer>
+        </Card>
 
-      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
-        <Card.Body>
-          <Card.Title>NO.1 travel site!</Card.Title>
-          <Card.Text>
-           "True proffesionals. Each and every detail was taken into account. 
-           We had the time of our lives"
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>Afula Times</Card.Footer>
-      </Card>
+        <Card
+          className="press"
+          border="secondary"
+          style={{ width: "18rem", marginLeft: "10px", marginRight: "10px" }}
+        >
+          <Card.Body>
+            <Card.Title>NO.1 travel site!</Card.Title>
+            <Card.Text>
+              "True proffesionals. Each and every detail was taken into account.
+              We had the time of our lives"
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>Afula Times</Card.Footer>
+        </Card>
 
-      <Card class="press" border="secondary" style={{ width: "18rem", marginLeft:"10px", marginRight:"10px" }}>
-        <Card.Body>
-          <Card.Title>NO.1 travel site!</Card.Title>
-          <Card.Text>
-           "True proffesionals. Each and every detail was taken into account. 
-           We had the time of our lives"
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>Afula Times</Card.Footer>
-      </Card>
+        <Card
+          className="press"
+          border="secondary"
+          style={{ width: "18rem", marginLeft: "10px", marginRight: "10px" }}
+        >
+          <Card.Body>
+            <Card.Title>NO.1 travel site!</Card.Title>
+            <Card.Text>
+              "True proffesionals. Each and every detail was taken into account.
+              We had the time of our lives"
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>Afula Times</Card.Footer>
+        </Card>
       </Row>
       <br />
     </div>

@@ -28,6 +28,7 @@ import manInForest2 from "../../images/manInForest2.jpg";
 import coupleClothing from "../../images/coupleClothing.jpg";
 import "./store.css";
 import axios from "axios";
+import { getOverlappingDaysInIntervals } from "date-fns";
 // import * as api from "./api";
 
 function Store(props) {
@@ -36,28 +37,39 @@ function Store(props) {
   console.log(itemsArray);
   const [errorMassage, setErrorMassage] = useState("");
   const devUrl = "http://localhost:3001";
+  let { filter } = useParams();
 
-  useEffect(async () => {
-    console.log("hello from store");
-    try {
-      const res = await axios("http://localhost:3001/items");
-      console.log(res.data);
-      setItemsArray(res.data);
-    } catch (error) {
-      console.log(error);
-      setErrorMassage(error.Error);
-    }
+  // useEffect(async () => {
+  //   try {
+  //     const res = await axios("http://localhost:3001/items");
+  //     console.log(res.data);
+  //     setItemsArray(res.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setErrorMassage(error.Error);
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    const sortedItems = async () => {
+      const items = filter
+        ? await axios.get(`http://localhost:3001/items/${filter}`)
+        : await axios.get(`http://localhost:3001/items`);
+      console.log(items.data);
+      setItemsArray(items.data);
+    };
+    sortedItems();
   }, []);
 
-  let { filter } = useParams();
-  let items = props.items;
-  if (filter && filter != "All") {
-    items = items.filter((thing) => {
-      console.log(thing.categoryB);
-      return thing.category == filter || thing.categoryB == filter;
-    });
-    console.log(items);
-  }
+  // let { filter } = useParams();
+  // let items = props.items;
+  // if (filter && filter != "All") {
+  //   items = items.filter((thing) => {
+  //     console.log(thing.categoryB);
+  //     return thing.category == filter || thing.categoryB == filter;
+  //   });
+  //   console.log(items);
+  // }
 
   return (
     <div>
@@ -111,7 +123,7 @@ function Store(props) {
         <Card className="bg-dark text-white" style={{ width: "100%" }}>
           <Card.Img
             src={hikingImg}
-            style={{ height: "20rem", objectFit:"cover" }}
+            style={{ height: "20rem", objectFit: "cover" }}
             alt="Card image"
           />
         </Card>
@@ -178,11 +190,9 @@ function Store(props) {
                       <ListGroupItem>{item.avaliability}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <LinkContainer
-                        to="/singleItem"
-                        onClick={() => props.toSingleItem(props.item.id)}
-                      >
+                      <LinkContainer to="/singleItem">
                         <Button
+                          onClick={() => props.toSingleItem(item.id)}
                           id="showProductButt"
                           style={{
                             backgroundColor: "gray",
@@ -221,6 +231,8 @@ function Store(props) {
           </Card>
           {showHoverContent && (
             <Card
+              id="hoverBox"
+              style={{ alignContent: "top" }}
               border="dark"
               style={{
                 width: "auto",

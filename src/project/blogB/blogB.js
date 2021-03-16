@@ -8,7 +8,8 @@ import "./blogB.css";
 function Posts(props) {
   
   async function getPosts() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
+    const response = await fetch("http://localhost:3001/blogs/");
+    // const response = await fetch("https://jsonplaceholder.typicode.com/blogs/");
     const data = await response.json();
     return data;
   }
@@ -36,11 +37,13 @@ function Posts(props) {
               >
                 <Card.Header>Header</Card.Header>
                 <Card.Body>
-                  <Card.Title>{blog.title}</Card.Title>
-                  <Card.Text>{blog.body}</Card.Text>
+                <Card.Title>{blog.headline}</Card.Title>
+                  <Card.Text>{blog.preview}</Card.Text>
+                  {/* <Card.Title>{blog.title}</Card.Title>
+                  <Card.Text>{blog.body}</Card.Text> */}
                 </Card.Body>
                 <Card.Footer>
-                  {blog.userId}
+                  {/* {blog.userId} */}
                   {blog.id}
                 </Card.Footer>
               </Card>

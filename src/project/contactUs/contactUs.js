@@ -13,8 +13,34 @@ function ContactUs(props) {
   }
 
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  // const onSubmit = (data) => console.log(data);
   console.log(watch("example"));
+
+  const onSubmit = (data, r) => {
+    alert(`Thank you for your message from ${data.email}`);
+    const templateId = "template_vtx6pr9";
+    const serviceID = "final_project";
+    sendFeedback(serviceID, templateId, {
+      from_name: data.name,
+      message: data.comment,
+      reply_to: data.email,
+    });
+    r.target.reset();
+  };
+
+  const sendFeedback = (serviceID, templateId, variables) => {
+    window.emailjs
+      .send(serviceID, templateId, variables)
+      .then((res) => {
+        console.log("Email successfully sent!");
+      })
+      .catch((err) =>
+        console.error(
+          "There has been an error.  Here some thoughts on the error that occured:",
+          err
+        )
+      );
+  };
 
   return (
     <div>
