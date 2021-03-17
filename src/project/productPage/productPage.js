@@ -16,8 +16,11 @@ import ProductCarousel from "./ProductCarousel";
 import {LinkContainer} from "react-router-bootstrap";
 
 function ProductPage(props) {
+  const devUrl = "http://localhost:3001/images/";
+  let { id } = useParams();
+  const [product, setProduct] = useState({});
   let stars = [];
-  let product = props.product;
+  // let product = props.product;
   for (let i = 0; i < props.product.rating; i++) {
     stars.push(
       <FontAwesomeIcon key={i} style={{ color: "yellow" }} icon={faStar} />
@@ -30,6 +33,15 @@ function ProductPage(props) {
       ))}
     </p>
   );
+
+  useEffect(() => {
+    const getData = async () => {
+      const products = await axios.get(`http://localhost:3001/products/product/${id}`);
+      console.log(products);
+      setProduct(products.data[0]);
+    };
+    getData();
+  }, []);
 
   return (
     <Container className="page">

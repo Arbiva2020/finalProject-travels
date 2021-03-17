@@ -13,8 +13,8 @@ import SingleItem from "./project/singleItem/singleItem";
 import WeAreHiring from "./project/weAreHiring/weAreHiring";
 import MailMe from "./project/mailMe/mailMe";
 import FromTheMedia from "./project/fromTheMedia/fromTheMedia";
-import BlogB from "./project/blogB/blogB";
-import Blog from "./project/blog/blog";
+import BlogB from "./project/blogMain/blogB";
+import BlogSingle from "./project/blogSingle/blogSingle";
 import OrderPage from "./project/orderPage/orderPage";
 import Cart from "./project/cart/cart";
 import LogIn from "./project/logIn/logIn";
@@ -227,14 +227,14 @@ function App() {
               )}
             />
             <Route
-              path="/singleItem"
+              path="/singleItem/:id"
               exact
               component={() => <SingleItem item={id} />}
             />
             <Route path="/weAreHiring" exact component={WeAreHiring} />
             <Route path="/mailMe" exact component={MailMe} />
             <Route path="/fromTheMedia" exact component={FromTheMedia} />
-            <Route path="/blog" exact component={Blog} />
+            <Route path="/blogSingle" exact component={BlogSingle} />
             <Route path="/blogB" exact component={BlogB} />
             <Route path="/orderPage" exact component={OrderPage} />
             <Route path="/cart" exact component={Cart} />

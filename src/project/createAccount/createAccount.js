@@ -4,11 +4,12 @@ import { Card, Button, Col, Form, Row } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import waterfall from "../../images/waterfall.jpg";
 import "./createAccount.css";
+import axios from "axios";
 
 function CreateAccount(props) {
 
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => axios.post('http://localhost:3001/createAccount', data);
   console.log(watch("example"));
 
   return (

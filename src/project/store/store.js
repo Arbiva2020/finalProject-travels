@@ -190,7 +190,7 @@ function Store(props) {
                       <ListGroupItem>{item.avaliability}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <LinkContainer to="/singleItem">
+                      <LinkContainer to={`/singleItem/${item._id}`}>
                         <Button
                           onClick={() => props.toSingleItem(item.id)}
                           id="showProductButt"

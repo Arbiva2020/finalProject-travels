@@ -35,10 +35,18 @@ function Posts(props) {
                   height: "22rem",
                 }}
               >
-                <Card.Header>Header</Card.Header>
+                <Card.Header>{blog.headline}</Card.Header>
                 <Card.Body>
-                <Card.Title>{blog.headline}</Card.Title>
-                  <Card.Text>{blog.preview}</Card.Text>
+                <Card.Title></Card.Title>
+                  <Card.Text>
+                    {blog.preview}
+                    <Button onClick={""} style={{margin: "20px",
+                backgroundColor:"lightgray",
+                color: "black",
+                borderStyle: "solid",
+                borderColor: "black",
+                borderWidth: "2px", verticalAlign:"buttom", display:"inline"}}>Read more</Button>
+                  </Card.Text>
                   {/* <Card.Title>{blog.title}</Card.Title>
                   <Card.Text>{blog.body}</Card.Text> */}
                 </Card.Body>

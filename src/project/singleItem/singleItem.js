@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { propTypes } from "react-bootstrap/esm/Image";
 import { render } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,11 +27,11 @@ function SingleItem(props) {
   const [upload, setUpload] = useState(true);
   const [oneItem, setOneItem] = useState();
   const devUrl = "http://localhost:3001/images/";
-  let { itemId } = useParams();
+  let { id } = useParams();
 
   useEffect(() => {
     const getData = async () => {
-      const items = await axios.get(`http://localhost:3001/item/${itemId}`);
+      const items = await axios.get(`http://localhost:3001/items/item/${id}`);
       console.log(items);
       console.log("hello");
 
@@ -41,11 +40,11 @@ function SingleItem(props) {
     getData();
   }, []);
 
-  function add() {
-    setCount(counter + 1);
+  function addCount() {
+    setCount(prevCount => prevCount + 1);
   }
-  function remove() {
-    setCount(counter - 1);
+  function removeCount() {
+    setCount(prevCount => prevCount - 1);
   }
 
   // useEffect(() => {
@@ -88,27 +87,27 @@ function SingleItem(props) {
             style={{ width: "10rem", height: "8rem" }}
             className="sideImgCard"
           >
-            <Card.Img variant="top" src={`${devUrl}${item.addIimg1}`} />
+            <Card.Img variant="top" src={`${devUrl}${item.addImg1}`} />
           </Card>
         </Col>
 
         <Col xs={6} id="colItem">
           <Card style={{ width: "40rem", height: "30rem" }} id="itemImgCard">
-            <Card.Img variant="top" src={`${devUrl}${item.addiImg2}`} />
+            <Card.Img variant="top" src={`${devUrl}${item.addImg2}`} />
           </Card>
           <Card style={{ width: "20rem", height: "30rem" }} id="itemDetailCard">
             <Card.Body>
               <Card.Title id="singleTitle">{item.name}</Card.Title>
               <Card.Text>{item.description}</Card.Text>
               <ListGroup className="list-group-flush">
-                <ListGroupItem>{item.price}</ListGroupItem>
+                <ListGroupItem>price: {item.price}</ListGroupItem>
 
                 {/* <itemInfo addToCart={addToCartHandler} detail={item} /> */}
 
                 <ButtonGroup aria-label="Basic example" id="quantity">
                   <Button
                     variant="secondary"
-                    onClick={remove}
+                    onClick={removeCount}
                     className="quanSelectors"
                   >
                     -1
@@ -122,7 +121,7 @@ function SingleItem(props) {
                   </Button>
                   <Button
                     variant="secondary"
-                    onClick={add}
+                    onClick={addCount}
                     className="quanSelectors"
                   >
                     +1

@@ -39,8 +39,8 @@ const places = [
 ];
 
 function SiteCard(props) {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
   const [productsArray, setProductsArray] = useState([]);
   const [errorMassage, setErrorMassage] = useState("");
   const devUrl = "http://localhost:3001";
@@ -206,17 +206,27 @@ function SiteCard(props) {
                       src={`${devUrl}/images/${product.img}`}
                     />
                     <Card.Body>
-                      <Card.Title>{product.name}</Card.Title>
+                      <Card.Title style={{fontWeight:"bold"}}>{product.name}</Card.Title>
                       <Card.Text>{product.description}</Card.Text>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                      <ListGroupItem>{product.price}</ListGroupItem>
-                      <ListGroupItem>{product.days}</ListGroupItem>
-                      <ListGroupItem>{product.rating}</ListGroupItem>
+                    <ListGroupItem>Total price: {product.price}</ListGroupItem>
+                      <ListGroupItem>duration: {product.days}</ListGroupItem>
+                      <ListGroupItem>Rating out of 5: {product.rating}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Card.Link href="/productPage">Go to page</Card.Link>
-                      <Card.Link href="#"></Card.Link>
+                    <Button
+                          onClick={() => props.toProductPage(product.id)}
+                          id="showSiteButt"
+                          style={{
+                            backgroundColor: "lightgray",
+                            borderStyle: "solid",
+                            borderColor: "black",
+                            color:"black",
+                          }}
+                        >
+                          Show product
+                        </Button>
                     </Card.Body>
                   </Card>
                 </div>
@@ -232,17 +242,27 @@ function SiteCard(props) {
                       src={`${devUrl}/images/${product.img}`}
                     />
                     <Card.Body>
-                      <Card.Title>{product.name}</Card.Title>
+                      <Card.Title style={{fontWeight:"bold"}}>{product.name}</Card.Title>
                       <Card.Text>{product.description}</Card.Text>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                      <ListGroupItem>{product.price}</ListGroupItem>
-                      <ListGroupItem>{product.days}</ListGroupItem>
-                      <ListGroupItem>{product.rating}</ListGroupItem>
+                      <ListGroupItem>Total price: {product.price}</ListGroupItem>
+                      <ListGroupItem>duration: {product.days}</ListGroupItem>
+                      <ListGroupItem>Rating out of 5: {product.rating}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Card.Link href="/productPage">Go to page</Card.Link>
-                      <Card.Link href="#"></Card.Link>
+                    <Button
+                          onClick={() => props.toProductPage(product.id)}
+                          id="showSiteButt"
+                          style={{
+                            backgroundColor: "lightgray",
+                            borderStyle: "solid",
+                            borderColor: "black",
+                            color:"black",
+                          }}
+                        >
+                          Show product
+                        </Button>
                     </Card.Body>
                   </Card>
                 </div>
